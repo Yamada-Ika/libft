@@ -35,7 +35,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	joined_str = createNullStr(s1_len + s2_len + 1);
+	joined_str = (char *)createNullStr(s1_len + s2_len + 1);
 	if (joined_str == NULL)
 		return (NULL);
 	i = 0;
