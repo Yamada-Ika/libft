@@ -1,21 +1,22 @@
 #include <string.h>
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_strnew(size_t size)
-{
-	char	*str;
-	int		i;
+// char	*ft_strnew(size_t size)
+// {
+// 	char	*str;
+// 	int		i;
 
-	str = (char *)malloc(sizeof(size_t) * size);
-	if (str == NULL)
-		return (NULL);
-	i = 0;
-	while (size-- > 0)
-		str[i++] = '\0';
-	return (str);
-}
+// 	str = (char *)malloc(sizeof(size_t) * size);
+// 	if (str == NULL)
+// 		return (NULL);
+// 	i = 0;
+// 	while (size-- > 0)
+// 		str[i++] = '\0';
+// 	return (str);
+// }
 
-size_t	ft_trimed_strlen(char const *s)
+const size_t	ft_trimed_strlen(char const *s)
 {
 	size_t	trimed_str_len;
 

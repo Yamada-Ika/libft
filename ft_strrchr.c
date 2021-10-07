@@ -1,14 +1,15 @@
 #include <string.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	count;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
-}
+// 	count = 0;
+// 	while (s[count] != '\0')
+// 		count++;
+// 	return (count);
+// }
 
 //  char *
 //  strrchr(const char *s, int c);
@@ -27,6 +28,7 @@ size_t	ft_strlen(const char *s)
 //  The functions strchr() and strrchr() return a pointer to 
 //  the located character, or NULL if the character
 //  does not appear in the string.
+
 
 char	*ft_strrchr(const char *s, int c)
 {

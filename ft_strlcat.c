@@ -1,15 +1,16 @@
 #include <string.h>
 #include <stdio.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	count;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
-}
+// 	count = 0;
+// 	while (s[count] != '\0')
+// 		count++;
+// 	return (count);
+// }
 
 //  size_t
 //  strlcat(char * restrict dst,

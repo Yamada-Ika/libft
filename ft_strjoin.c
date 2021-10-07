@@ -1,17 +1,18 @@
 #include <string.h>
 #include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	count;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
-}
+// 	count = 0;
+// 	while (s[count] != '\0')
+// 		count++;
+// 	return (count);
+// }
 
-char	*ft_strnew(size_t size)
+const char	*createNullStr(size_t size)
 {
 	char	*str;
 	int		i;
@@ -34,7 +35,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
-	joined_str = ft_strnew(s1_len + s2_len + 1);
+	joined_str = createNullStr(s1_len + s2_len + 1);
 	if (joined_str == NULL)
 		return (NULL);
 	i = 0;

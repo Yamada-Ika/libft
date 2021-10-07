@@ -1,17 +1,18 @@
 #include <string.h>
 #include <stdlib.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	count;
+// size_t	ft_strlen(const char *s)
+// {
+// 	size_t	count;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
-}
+// 	count = 0;
+// 	while (s[count] != '\0')
+// 		count++;
+// 	return (count);
+// }
 
-char	*ft_strnew(size_t size)
+const char	*createNullStr(size_t size)
 {
 	char	*str;
 	int		i;
@@ -30,7 +31,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int		i;
 	char				*new_str;
 
-	new_str = ft_strnew(ft_strlen(s) + 1);
+	new_str = createNullStr(ft_strlen(s) + 1);
 	if (new_str == NULL)
 		return (NULL);
 	i = 0;
