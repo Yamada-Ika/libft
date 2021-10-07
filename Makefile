@@ -145,7 +145,7 @@ ft_putnbr_fd.o: ft_putnbr_fd.c
 	$(CC) $(CFLAGS) ft_putnbr_fd.c -o ft_putnbr_fd.o
 
 clean:
-	rm -rf $(OBJFILE)
+	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(NAME)
