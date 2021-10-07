@@ -16,7 +16,7 @@
 // 	return (str);
 // }
 
-const size_t	ft_trimed_strlen(char const *s)
+const size_t	trimedStrLen(char const *s)
 {
 	size_t	trimed_str_len;
 
@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s)
 	char	*trimed_str;
 	char	*trimed_str_1st_ptr;
 
-	trimed_str = (char *)malloc(sizeof(char) * ft_trimed_strlen(s) + 1);
+	trimed_str = (char *)malloc(sizeof(char) * ((size_t)trimedStrLen(s) + 1));
 	if (trimed_str == NULL)
 		return (NULL);
 	trimed_str_1st_ptr = trimed_str;
