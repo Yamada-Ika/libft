@@ -1,8 +1,4 @@
 #include <string.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <stdio.h>
-#include <unistd.h>
 #include "libft.h"
 
 // size_t	get_digits(int n)
@@ -86,7 +82,8 @@ void	ft_putnbr_fd(int n, int fd)
 	ft_putstr_fd(ft_itoa(n), fd);
 }
 
+// #include <stdio.h>
 // -- test code --
-int main(void){
-	ft_putnbr_fd(100, 1);
-}
+// int main(void){
+// 	ft_putnbr_fd(100, 1);
+// }
