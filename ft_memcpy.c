@@ -1,10 +1,11 @@
 #include <string.h>
 
-void	*ft_memcpy(void *restrict dst,
-	const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	void	*restrict dst_tmp;
+	void	*dst_tmp;
 
+	if (dst == NULL || src == NULL)
+		return (dst);
 	dst_tmp = dst;
 	while (n-- > 0)
 	{
@@ -24,14 +25,14 @@ void	*ft_memcpy(void *restrict dst,
 // 	size_t	n;
 // 	void	*return_val;
 
-	// n = 3;
-	// printf("before ft_memcpy : \n");
-	// printf("ft_src = %s\n", ft_src);
-	// printf("ft_dst = %s\n", ft_dst);
-	// printf("after ft_memcpy  : \n");
-	// return_val = ft_memcpy(ft_dst, ft_src, n);
-	// printf("ft_dst = %s\n", ft_dst);
-	// printf("return value = %p should be equal to %p\n", return_val, ft_dst);
+// 	n = 3;
+// 	printf("before ft_memcpy : \n");
+// 	printf("ft_src = %s\n", ft_src);
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("after ft_memcpy  : \n");
+// 	return_val = ft_memcpy(ft_dst, NULL, n);
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("return value = %p should be equal to %p\n", return_val, ft_dst);
 
 	// printf("before memcpy : \n");
 	// printf("src = %s\n", src);
