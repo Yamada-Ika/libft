@@ -3,19 +3,23 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	// void			*dst_tmp;
 	unsigned char	*uc_dst;
 	unsigned char	*uc_src;
 	size_t			i;
 
-	// if (len == 0)
-	// 	return (dst);
+	if (dst == NULL || src == NULL)
+		return (dst);
 	uc_dst = (unsigned char *)dst;
 	uc_src = (unsigned char *)src;
 	i = 0;
-	while (i < len)
+	while (i < len && dst >= src)
 	{
 		uc_dst[len - 1 - i] = uc_src[len - 1 - i];
+		i++;
+	}
+	while (i < len && dst < src)
+	{
+		uc_dst[i] = uc_src[i];
 		i++;
 	}
 	return ((void *)uc_dst);
@@ -33,26 +37,26 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 // 	size_t	n;
 // 	void	*return_val;
 
-	// n = 3;
-	// printf("before ft_memmove : \n");
-	// printf("ft_src = %s\n", ft_src);
-	// printf("ft_dst = %s\n", ft_dst);
-	// printf("after ft_memmove  : \n");
-	// return_val = ft_memmove(ft_dst, ft_src, n);
-	// printf("ft_dst = %s\n", ft_dst);
-	// printf("return value = %p should be equal to %p\n", return_val, ft_dst);
+// 	n = 3;
+// 	printf("before ft_memmove : \n");
+// 	printf("ft_src = %s\n", ft_src);
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("after ft_memmove  : \n");
+// 	return_val = ft_memmove(ft_dst, ft_src, n);
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("return value = %p should be equal to %p\n", return_val, ft_dst);
 
-	// printf("before memmove : \n");
-	// printf("src = %s\n", src);
-	// printf("dst = %s\n", dst);
-	// printf("after memmove :\n");
-	// return_val = memmove(dst, src, n);
-	// printf("dst = %s\n", dst);
-	// printf("return value = %p should be equal to %p\n", return_val, dst);
-	// putchar('\n');
+// 	printf("before memmove : \n");
+// 	printf("src = %s\n", src);
+// 	printf("dst = %s\n", dst);
+// 	printf("after memmove :\n");
+// 	return_val = memmove(dst, src, n);
+// 	printf("dst = %s\n", dst);
+// 	printf("return value = %p should be equal to %p\n", return_val, dst);
+// 	putchar('\n');
 
-// 	printf("Overlap case :\n");
-// 	n = 11;
+// 	printf("Overlap case (dst > src):\n");
+// 	n = 3;
 // 	printf("before ft_memmove : \n");
 // 	printf("ft_dst = %s\n", ft_dst);
 // 	printf("after ft_memmove  : \n");
@@ -64,6 +68,40 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 // 	printf("dst = %s\n", dst);
 // 	printf("after memmove :\n");
 // 	return_val = memmove(dst+1, dst, n);
+// 	printf("dst = %s\n", dst);
+// 	printf("return value = %p should be equal to %p\n", return_val, dst);
+// 	putchar('\n');
+
+// 	printf("Overlap case (dst < src):\n");
+// 	n = 3;
+// 	printf("before ft_memmove : \n");
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("after ft_memmove  : \n");
+// 	return_val = ft_memmove(ft_dst, ft_dst+1, n);
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("return value = %p should be equal to %p\n", return_val, ft_dst);
+
+// 	printf("before memmove : \n");
+// 	printf("dst = %s\n", dst);
+// 	printf("after memmove :\n");
+// 	return_val = memmove(dst, dst+1, n);
+// 	printf("dst = %s\n", dst);
+// 	printf("return value = %p should be equal to %p\n", return_val, dst);
+// 	putchar('\n');
+
+// 	printf("Overlap case (dst = src):\n");
+// 	n = 3;
+// 	printf("before ft_memmove : \n");
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("after ft_memmove  : \n");
+// 	return_val = ft_memmove(ft_dst, ft_dst, n);
+// 	printf("ft_dst = %s\n", ft_dst);
+// 	printf("return value = %p should be equal to %p\n", return_val, ft_dst);
+
+// 	printf("before memmove : \n");
+// 	printf("dst = %s\n", dst);
+// 	printf("after memmove :\n");
+// 	return_val = memmove(dst, dst, n);
 // 	printf("dst = %s\n", dst);
 // 	printf("return value = %p should be equal to %p\n", return_val, dst);
 // 	putchar('\n');
