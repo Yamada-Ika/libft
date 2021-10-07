@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 // #include <stdlib.h>
 
 // int main(void){
-// 	char str[] = "1a";
+// 	char str[] = "2147483649038";
 
 // 	printf("atoi :    %d\n", atoi(str));
 // 	printf("ft_atoi : %d\n", ft_atoi(str));
