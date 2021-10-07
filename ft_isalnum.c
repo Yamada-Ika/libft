@@ -1,4 +1,5 @@
 #include <string.h>
+#include "libft.h"
 
 // int	ft_isalpha(int c)
 // {
