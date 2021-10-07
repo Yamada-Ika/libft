@@ -2,8 +2,8 @@
 
 int	ft_tolower(int c)
 {
-	if ('A' <= (char)c && (char)c <= 'Z')
-		return ((int)((char)c + ('a' - 'A')));
+	if ('A' <= (unsigned char)c && (unsigned char)c <= 'Z')
+		return ((int)((unsigned char)c + ('a' - 'A')));
 	else
 		return (c);
 }

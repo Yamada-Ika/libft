@@ -2,8 +2,8 @@
 
 int	ft_isalpha(int c)
 {
-	if (('a' <= (char)c && (char)c <= 'z')
-		|| ('A' <= (char)c && (char)c <= 'Z'))
+	if (('a' <= (unsigned char)c && (unsigned char)c <= 'z')
+		|| ('A' <= (unsigned char)c && (unsigned char)c <= 'Z'))
 		return (1);
 	else
 		return (0);
@@ -13,6 +13,11 @@ int	ft_isalpha(int c)
 
 // #include <stdio.h>
 // #include <ctype.h>
+
+// int main(void) {
+// 	printf("isalpha    : %d\n", isalpha('f'));
+// 	printf("ft_isalpha : %d\n", ft_isalpha('f'));
+// }
 
 // int main(void){
 // 	int	ascii_num = 0;

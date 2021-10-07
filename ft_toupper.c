@@ -1,18 +1,9 @@
-// NAME
-//      toupper, toupper_l -- lower case to upper case letter conversion
-
-// LIBRARY
-//      Standard C Library (libc, -lc)
-
-// SYNOPSIS
-//      #include <ctype.h>
-
 #include <string.h>
 
 int	ft_toupper(int c)
 {
-	if ('a' <= (char)c && (char)c <= 'z')
-		return ((int)((char)c - ('a' - 'A')));
+	if ('a' <= (unsigned char)c && (unsigned char)c <= 'z')
+		return ((int)((unsigned char)c - ('a' - 'A')));
 	else
 		return (c);
 }

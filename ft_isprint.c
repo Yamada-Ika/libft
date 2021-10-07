@@ -2,7 +2,7 @@
 
 int	ft_isprint(int c)
 {
-	if (' ' <= (char)c && (char)c <= '~')
+	if (' ' <= (unsigned char)c && (unsigned char)c <= '~')
 		return (1);
 	else
 		return (0);
