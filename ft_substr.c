@@ -21,6 +21,43 @@
 // The substring begins at index ’start’ and is of
 // maximum size ’len’.
 
-int main(void) {
+const char	*createNullStr(size_t size)
+{
+	char	*str;
+	int		i;
 
+	str = (char *)malloc(sizeof(size_t) * size);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (size-- > 0)
+		str[i++] = '\0';
+	return (str);
 }
+
+char *ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*substr;
+	size_t	i;
+
+	substr = (char *)createNullStr(len + 1);
+	if (substr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		substr[i] = s[start + i];
+		i++;
+	}
+	substr[i] = '\0';
+	return (substr);
+}
+
+// -- test code --
+// #include <stdio.h>
+
+// int main(void) {
+// 	char s[] = "0123456789";
+// 	printf("str    : %s\n", s);
+// 	printf("substr : %s\n", ft_substr(s, 3, 3)); // > 345
+// }
