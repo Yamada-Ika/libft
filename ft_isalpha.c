@@ -1,9 +1,17 @@
 #include <string.h>
 
+// int	ft_isalpha(int c)
+// {
+// 	if (('a' <= (unsigned char)c && (unsigned char)c <= 'z')
+// 		|| ('A' <= (unsigned char)c && (unsigned char)c <= 'Z'))
+// 		return (1);
+// 	else
+// 		return (0);
+// }
+
 int	ft_isalpha(int c)
 {
-	if (('a' <= (unsigned char)c && (unsigned char)c <= 'z')
-		|| ('A' <= (unsigned char)c && (unsigned char)c <= 'Z'))
+	if ((97 <= c && c <= 122) || (65 <= c && c <= 90))
 		return (1);
 	else
 		return (0);
@@ -15,8 +23,11 @@ int	ft_isalpha(int c)
 // #include <ctype.h>
 
 // int main(void) {
-// 	printf("isalpha    : %d\n", isalpha('f'));
-// 	printf("ft_isalpha : %d\n", ft_isalpha('f'));
+// 	int i;
+
+// 	i = -1;
+// 	printf("isalpha    : %d\n", isalpha(i));
+// 	printf("ft_isalpha : %d\n", ft_isalpha(i));
 // }
 
 // int main(void){
