@@ -1,28 +1,11 @@
 #include <string.h>
 
-// SYNOPSIS
-//      #include <string.h>
-
-//      int
-//      strcmp(const char *s1, const char *s2);
-
-//      int
-//      strncmp(const char *s1, const char *s2,
-//          size_t n);
-
-// int	ft_strcmp(const char *s1, const char *s2)
-// {
-// 	if (*s1 != *s2 || *s1 == '\0' || *s2 == '\0')
-// 		return (*s1 - *s2);
-// 	return (ft_strcmp(++s1, ++s2));
-// }
-
 int	ft_strncmp(const char*s1, const char *s2, size_t n)
 {
 	if (n == 0)
 		return (0);
 	if (*s1 != *s2 || *s1 == '\0' || *s2 == '\0' || n == 1)
-		return (*s1 - *s2);
+		return ((unsigned char)*s1 - (unsigned char)*s2);
 	return (ft_strncmp(++s1, ++s2, --n));
 }
 
@@ -48,9 +31,10 @@ int	ft_strncmp(const char*s1, const char *s2, size_t n)
 // #include <stdio.h>
 
 // int main(void){
-// 	char s1[] = "0123456789", s2[] = "1";
+// 	char s1[] = "\200", s2[] = "\0";
 // 	size_t n = 2;
 
+// 	printf("%d\n", s1[0]);
 // 	printf("strncmp :    %d\n", strncmp(s1, s2, n));
 // 	printf("ft_strncmp : %d\n", ft_strncmp(s1, s2, n));
 // }

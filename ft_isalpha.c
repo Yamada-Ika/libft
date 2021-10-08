@@ -1,21 +1,32 @@
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 11:17:09 by yamadaiori        #+#    #+#             */
+/*   Updated: 2021/10/08 12:14:33 by iyamada          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// int	ft_isalpha(int c)
-// {
-// 	if (('a' <= (unsigned char)c && (unsigned char)c <= 'z')
-// 		|| ('A' <= (unsigned char)c && (unsigned char)c <= 'Z'))
-// 		return (1);
-// 	else
-// 		return (0);
-// }
+#include <string.h>
 
 int	ft_isalpha(int c)
 {
-	if ((97 <= c && c <= 122) || (65 <= c && c <= 90))
+	if (('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z'))
 		return (1);
 	else
 		return (0);
 }
+
+// int	ft_isalpha(int c)
+// {
+// 	if ((97 <= c && c <= 122) || (65 <= c && c <= 90))
+// 		return (1);
+// 	else
+// 		return (0);
+// }
 
 // Test case
 
