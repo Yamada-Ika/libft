@@ -25,13 +25,15 @@ char	*ft_strchr(const char *s, int c)
 
 	c_located_at = NULL;
 	i = 0;
-	while (s[i] != '\0')
+	while (1)
 	{
 		if (s[i] == (char)c)
 		{
 			c_located_at = (char *)&s[i];
 			break ;
-		}	
+		}
+		if (s[i] == '\0')
+			break ;
 		i++;
 	}
 	return (c_located_at);
@@ -41,10 +43,8 @@ char	*ft_strchr(const char *s, int c)
 // #include <stdio.h>
 
 // int main(void){
-// 	char s[] = "0123456789", c = 'z';
+// 	char s[] = "0123", c = '2';
 
-// 	printf("strchr :    %p address of c in s : %p\n", 
-// 		strchr(s, c), &s[c ? c - '0' : 10]);
-// 	printf("ft_strchr : %p address of c in s : %p\n", 
-// 		ft_strchr(s, c), &s[c ? c - '0' : 10]);
+// 	printf("strchr :    %p\n", strchr(s, c));
+// 	printf("ft_strchr : %p\n", ft_strchr(s, c));
 // }
