@@ -1,60 +1,57 @@
 #include <string.h>
 
-//  The strnstr() function locates the first occur-
-//  rence of the null-terminated string needle in the
-//  string haystack, where not more than len charac-
-//  ters are searched.  Characters that appear after
-//  a `\0' character are not searched.  Since the
-//  strnstr() function is a FreeBSD specific API, it
-//  should only be used when portability is not a
-//  concern.
+static char	*helper(const char *s1, const char *s2, size_t len, int i)
+{
+	int		j;
+	int		found_first_i;
+	char	*found_at;
+
+	j = 0;
+	while (s1[++i] != '\0' && len-- > 0)
+	{
+		if (s1[i] == s2[j])
+		{
+			if (j == 0)
+				found_first_i = i;
+			j++;
+			if (s2[j] == '\0')
+			{
+				found_at = (char *)&s1[found_first_i];
+				break ;
+			}
+		}
+		else
+			j = 0;
+	}
+	return (found_at);
+}
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	int		i;
-	int		found_first_i;
-	int		j;
 	char	*found_at;
 
 	if (needle[0] == '\0')
 		return ((char *)haystack);
 	found_at = NULL;
 	i = 0;
-	j = 0;
-	while (haystack[i] != '\0' && len-- > 0)
-	{
-		if (haystack[i] == needle[j])
-		{
-			if (j == 0)
-				found_first_i = i;
-			j++;
-			if (needle[j] == '\0')
-				found_at = (char *)&haystack[found_first_i];
-		}
-		else
-			j = 0;
-		i++;
-	}
+	found_at = helper(haystack, needle, len, i);
 	return (found_at);
 }
-
-// RETURN VALUES
-//      If needle is an empty string, haystack is
-//      returned; if needle occurs nowhere in haystack,
-//      NULL is returned; otherwise a pointer to the
-//      first character of the first occurrence of needle
-//      is returned.
 
 // -- test code --
 // #include <stdio.h>
 
 // int main(void){
-// 	char haystack[] = "0123456789", needle[] = "4";
+// 	char haystack[] = "see FF your FF return FF now FF";
+// 	char needle[] = "FF";
 // 	size_t len;
 
-// 	len = 4;
-// 	printf("strnstr :    %p should be equal to %p\n", 
+// 	len = strlen(haystack);
+// 	printf("strnstr    : %p should be equal to %p\n", 
 // 		strnstr(haystack, needle, len), &haystack[4]);
+// 	printf("strnstr    : %s\n",strnstr(haystack, needle, len));
 // 	printf("ft_strnstr : %p should be equal to %p\n", 
 // 		ft_strnstr(haystack, needle, len), &haystack[4]);
+// 	printf("ft_strnstr : %s\n",strnstr(haystack, needle, len));
 // }
