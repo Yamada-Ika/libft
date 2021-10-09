@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 02:35:03 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/10 02:37:26 by iyamada          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
@@ -22,17 +34,14 @@
 // The substring begins at index ’start’ and is of
 // maximum size ’len’.
 
-const char	*createNullStr(size_t size)
+const char	*alloc_null_str(size_t size)
 {
 	char	*str;
-	int		i;
 
 	str = (char *)malloc(sizeof(size_t) * size);
 	if (str == NULL)
 		return (NULL);
-	i = 0;
-	while (size-- > 0)
-		str[i++] = '\0';
+	ft_bzero(str, size);
 	return (str);
 }
 
@@ -41,7 +50,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	size_t	i;
 
-	substr = (char *)createNullStr(len + 1);
+	substr = (char *)alloc_null_str(len + 1);
 	if (substr == NULL || s == NULL)
 		return (NULL);
 	if (ft_strlen(s) == 0)
