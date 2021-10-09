@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 00:31:38 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 00:57:50 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 #include <limits.h>
 #include "libft.h"
 
+static int	isspace_helper(int c)
+{
+	if ('\t' <= c && c <= '\r' || c == ' ')
+		return (1);
+	else
+		return (0);
+}
+
 static void	*trime_str(const char *str, int *sign)
 {
 	while (!ft_isdigit(*str) && *str != '+' && *str != '-')
 	{
-		if (!ft_isprint(*str))
+		if (!isspace_helper(*str))
 			return (NULL);
 		str++;
 	}	
@@ -82,10 +90,11 @@ int	ft_atoi(const char *str)
 // #include <stdlib.h>
 
 // int main(void){
-// 	// char str[] = "-92233720368547758089";
-// 	// char str[] = "92233720368547758079";
-// 	// char str[] = "-2147483649";
-// 	char str[] = "06050";
+	// char str[] = "-92233720368547758089";
+	// char str[] = "92233720368547758079";
+	// char str[] = "-2147483649";
+	// char str[] = "\e06050";
+// 	char str[] = "\t 06050";
 
 // 	printf("atoi :    %d\n", atoi(str));
 // 	printf("ft_atoi : %d\n", ft_atoi(str));
