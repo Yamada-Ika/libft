@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:33:06 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/08 17:54:50 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/09 12:23:27 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,16 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 }
 
 // -- test code --
-#include <stdio.h>
+// #include <stdio.h>
 
-int main(void)
-{
-	char 	ft_dst[11] = "0123456789";
-	char	dst[11] = "0123456789";
-	int		len = 11;
-	char 	ft_src[] = "**********", src[] = "**********";
-	size_t	n;
-	void	*return_val;
+// int main(void)
+// {
+// 	char 	ft_dst[11] = "0123456789";
+// 	char	dst[11] = "0123456789";
+// 	int		len = 11;
+// 	char 	ft_src[] = "**********", src[] = "**********";
+// 	size_t	n;
+// 	void	*return_val;
 
 	// n = 3;
 	// printf("before ft_memmove : \n");
@@ -84,22 +84,22 @@ int main(void)
 	// printf("return value = %p should be equal to %p\n", return_val, dst);
 	// putchar('\n');
 
-	printf("Overlap case (dst < src):\n");
-	n = 3;
-	printf("before ft_memmove : \n");
-	printf("ft_dst = %s\n", ft_dst);
-	printf("after ft_memmove  : \n");
-	return_val = ft_memmove(ft_dst, ft_dst+1, n);
-	printf("ft_dst = %s\n", ft_dst);
-	printf("return value = %p should be equal to %p\n", return_val, ft_dst);
+	// printf("Overlap case (dst < src):\n");
+	// n = 3;
+	// printf("before ft_memmove : \n");
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("after ft_memmove  : \n");
+	// return_val = ft_memmove(ft_dst, ft_dst+1, n);
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("return value = %p should be equal to %p\n", return_val, ft_dst);
 
-	printf("before memmove : \n");
-	printf("dst = %s\n", dst);
-	printf("after memmove :\n");
-	return_val = memmove(dst, dst+1, n);
-	printf("dst = %s\n", dst);
-	printf("return value = %p should be equal to %p\n", return_val, dst);
-	putchar('\n');
+	// printf("before memmove : \n");
+	// printf("dst = %s\n", dst);
+	// printf("after memmove :\n");
+	// return_val = memmove(dst, dst+1, n);
+	// printf("dst = %s\n", dst);
+	// printf("return value = %p should be equal to %p\n", return_val, dst);
+	// putchar('\n');
 
 	// printf("Overlap case (dst = src):\n");
 	// n = 3;
@@ -117,4 +117,4 @@ int main(void)
 	// printf("dst = %s\n", dst);
 	// printf("return value = %p should be equal to %p\n", return_val, dst);
 	// putchar('\n');
-}
+// }
