@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/09 01:08:40 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/09 12:21:12 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <limits.h>
 #include "libft.h"
 
-static void trime_str(const char *str, int *sign)
+static void	trime_str(const char *str, int *sign)
 {
 	while (!ft_isdigit(*str) && *str != '+' && *str != '-')
 		str++;
@@ -28,6 +28,31 @@ static void trime_str(const char *str, int *sign)
 	}
 }
 
+static long	atoi_helper(const char *str, long num, int sign)
+{
+	if (sign == 1)
+	{
+		if (num < (LONG_MAX - (*str - '0')) / 10)
+		{
+			num *= 10;
+			num += *str - '0';
+		}
+		else
+			num = LONG_MAX;
+	}
+	if (sign == -1)
+	{
+		if ((LONG_MIN + (*str - '0')) / 10 < num)
+		{
+			num *= 10;
+			num -= *str - '0';
+		}
+		else
+			num = LONG_MIN;
+	}
+	return (num);
+}
+
 int	ft_atoi(const char *str)
 {
 	long	num_in_str;
@@ -37,23 +62,7 @@ int	ft_atoi(const char *str)
 	num_in_str = 0;
 	while (ft_isdigit(*str))
 	{
-		printf("%lld %lld %d %d\n", num_in_str, 10 * num_in_str, *str - '0', sign);
-		printf("%ld %ld\n", LONG_MAX, LONG_MIN);
-		num_in_str *= 10;
-		if (sign == 1)
-		{
-			if (num_in_str + (*str - '0') < LONG_MAX)
-				num_in_str += *str - '0';
-			else
-				num_in_str = LONG_MAX;
-		}
-		if (sign == -1)
-		{
-			if (LONG_MIN < num_in_str - (*str - '0'))
-				num_in_str -= *str - '0';
-			else
-				num_in_str = LONG_MIN;
-		}
+		num_in_str = atoi_helper(str, num_in_str, sign);
 		if (num_in_str == LONG_MAX || num_in_str == LONG_MIN)
 			break ;
 		str++;
@@ -62,12 +71,13 @@ int	ft_atoi(const char *str)
 }
 
 // -- test code --
-#include <stdio.h>
-#include <stdlib.h>
+// #include <stdio.h>
+// #include <stdlib.h>
 
-int main(void){
-	char str[] = "99999999999999999999999999";
+// int main(void){
+// 	char str[] = "-92233720368547758089";
+// 	// char str[] = "92233720368547758079";
 
-	printf("atoi :    %d\n", atoi(str));
-	printf("ft_atoi : %d\n", ft_atoi(str));
-}
+// 	printf("atoi :    %d\n", atoi(str));
+// 	printf("ft_atoi : %d\n", ft_atoi(str));
+// }
