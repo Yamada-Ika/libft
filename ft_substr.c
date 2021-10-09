@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
+#include "libft.h"
 
 // Function name 
 // ft_substr
@@ -35,14 +36,16 @@ const char	*createNullStr(size_t size)
 	return (str);
 }
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	i;
 
 	substr = (char *)createNullStr(len + 1);
-	if (substr == NULL)
+	if (substr == NULL || s == NULL)
 		return (NULL);
+	if (ft_strlen(s) == 0)
+		return ((char *)s);
 	i = 0;
 	while (i < len)
 	{
@@ -58,6 +61,15 @@ char *ft_substr(char const *s, unsigned int start, size_t len)
 
 // int main(void) {
 // 	char s[] = "0123456789";
+// 	char *ret;
+// 	size_t len;
+
+// 	len = 3;
+// 	ret = ft_substr(s, 3, len);
 // 	printf("str    : %s\n", s);
 // 	printf("substr : %s\n", ft_substr(s, 3, 3)); // > 345
+// 	for (int i = 0; i < len+3; i++) {
+// 		printf("substr[%d] = %02x : %c\n", i, ret[i], ret[i]);
+// 	}
+// 	free(ret);
 // }
