@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/09 23:55:19 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/09 23:55:19 by iyamada          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 
 int	ft_tolower(int c)
 {
-	if ('A' <= (char)c && (char)c <= 'Z')
-		return ((int)((char)c + ('a' - 'A')));
+	if (65 <= c && c <= 90)
+		return (c + 32);
 	else
 		return (c);
 }
@@ -13,8 +25,8 @@ int	ft_tolower(int c)
 // #include <ctype.h>
 
 // int main(void){
-// 	char c = 'F';
+// 	int c = 70;
 
-// 	printf("tolower :    %c\n", tolower(c));
-// 	printf("ft_tolower : %c\n", ft_tolower(c));
+// 	printf("tolower :    %d\n", tolower(c));
+// 	printf("ft_tolower : %d\n", ft_tolower(c));
 // }
