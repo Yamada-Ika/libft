@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 00:57:50 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 00:58:47 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static int	isspace_helper(int c)
 {
-	if ('\t' <= c && c <= '\r' || c == ' ')
+	if (('\t' <= c && c <= '\r') || c == ' ')
 		return (1);
 	else
 		return (0);
