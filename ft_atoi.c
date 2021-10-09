@@ -1,74 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/09 01:08:40 by iyamada          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
+#include <stdio.h>
+#include <limits.h>
 #include "libft.h"
+
+static void trime_str(const char *str, int *sign)
+{
+	while (!ft_isdigit(*str) && *str != '+' && *str != '-')
+		str++;
+	*sign = 1;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			*sign = -1;
+		str++;
+	}
+}
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	num_in_str;
-	int	sign;
+	long	num_in_str;
+	int		sign;
 
-	sign = 1;
+	trime_str(str, &sign);
 	num_in_str = 0;
-	i = 0;
-	while (str[i] != '\0')
+	while (ft_isdigit(*str))
 	{
-		if ('0' <= str[i] && str[i] <= '9')
+		printf("%lld %lld %d %d\n", num_in_str, 10 * num_in_str, *str - '0', sign);
+		printf("%ld %ld\n", LONG_MAX, LONG_MIN);
+		num_in_str *= 10;
+		if (sign == 1)
 		{
-			num_in_str *= 10;
-			num_in_str += str[i] - '0';
+			if (num_in_str + (*str - '0') < LONG_MAX)
+				num_in_str += *str - '0';
+			else
+				num_in_str = LONG_MAX;
 		}
-		else if (str[i] == '-')
-			sign *= -1;
-		else if (str[i] == '+')
-			;
-		else
+		if (sign == -1)
+		{
+			if (LONG_MIN < num_in_str - (*str - '0'))
+				num_in_str -= *str - '0';
+			else
+				num_in_str = LONG_MIN;
+		}
+		if (num_in_str == LONG_MAX || num_in_str == LONG_MIN)
 			break ;
-		i++;
+		str++;
 	}
-	return (num_in_str * sign);
+	return ((int)num_in_str);
 }
 
 // -- test code --
-// #include <stdio.h>
-// #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-// int main(void){
-// 	char str[] = "2147483649038";
+int main(void){
+	char str[] = "99999999999999999999999999";
 
-// 	printf("atoi :    %d\n", atoi(str));
-// 	printf("ft_atoi : %d\n", ft_atoi(str));
-// }
-
-//      #include <xlocale.h>
-
-//      int
-//      atoi_l(const char *str, locale_t loc);
-
-// DESCRIPTION
-//      The atoi() function converts the initial portion of the 
-// 		string pointed to
-//      by str to int representation.
-
-//      It is equivalent to:
-
-//            (int)strtol(str, (char **)NULL, 10);
-
-//      While the atoi() function uses the current locale, the atoi_l() function
-//      may be passed a locale directly. See xlocale(3) for more information.
-
-// IMPLEMENTATION NOTES
-//      The atoi() and atoi_l() functions are thread-safe and async-cancel-safe.
-
-//      The strtol() and strtol_l() functions are recommended instead of atoi()
-//      and atoi_l() functions, especially in new code.
-
-// ERRORS
-//      The function atoi() need not affect the value of errno on an error.
-
-// SEE ALSO
-//      atof(3), atol(3), strtod(3), strtol(3), strtoul(3), xlocale(3)
-
-// STANDARDS
-//      The atoi() function conforms to ISO/IEC 9945-1:1990 (``POSIX.1''),
-//      ISO/IEC 9899:1990 (``ISO C90''), and ISO/IEC 9899:1999 (``ISO C99'').
-// :
+	printf("atoi :    %d\n", atoi(str));
+	printf("ft_atoi : %d\n", ft_atoi(str));
+}
