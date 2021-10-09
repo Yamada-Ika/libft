@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 02:35:03 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 02:37:26 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 02:45:03 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 // The substring begins at index ’start’ and is of
 // maximum size ’len’.
 
-const char	*alloc_null_str(size_t size)
+static char	*alloc_null_str(size_t size)
 {
 	char	*str;
 
