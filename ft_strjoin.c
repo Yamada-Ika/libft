@@ -6,23 +6,13 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 02:46:03 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 02:46:03 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 12:23:01 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	count;
-
-// 	count = 0;
-// 	while (s[count] != '\0')
-// 		count++;
-// 	return (count);
-// }
 
 static char	*alloc_null_str(size_t size)
 {
