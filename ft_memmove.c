@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:33:06 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/09 12:23:27 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 12:19:44 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	const char	*uc_src;
 	size_t		i;
 
-	if (dst == NULL || src == NULL)
+	if (dst == src || len == 0)
 		return (dst);
 	uc_dst = (char *)dst;
 	uc_src = (const char *)src;
@@ -42,14 +42,71 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 // int main(void)
 // {
-// 	char 	ft_dst[11] = "0123456789";
-// 	char	dst[11] = "0123456789";
+// 	char 	ft_dst[10] = "012345";
+// 	char	dst[10] = "012345";
 // 	int		len = 11;
-// 	char 	ft_src[] = "**********", src[] = "**********";
+// 	char 	ft_src[10] = "abcd",src[10] = "abcd";
 // 	size_t	n;
 // 	void	*return_val;
 
-	// n = 3;
+	// n = 2;
+	// printf("before ft_memmove : \n");
+	// printf("ft_src = %s\n", ft_src);
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("after ft_memmove  : \n");
+	// return_val = ft_memmove(ft_dst, ft_src, n);
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("return value = %p should be equal to %p\n", return_val, ft_dst);
+
+	// printf("before memmove : \n");
+	// printf("src = %s\n", src);
+	// printf("dst = %s\n", dst);
+	// printf("after memmove :\n");
+	// return_val = memmove(dst, src, n);
+	// printf("dst = %s\n", dst);
+	// printf("return value = %p should be equal to %p\n", return_val, dst);
+	// putchar('\n');
+
+	// // <- dst = src ->
+	// n = 2;
+	// printf("before ft_memmove : \n");
+	// printf("ft_src = %s\n", ft_src);
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("after ft_memmove  : \n");
+	// return_val = ft_memmove(ft_dst, ft_dst, n);
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("return value = %p should be equal to %p\n", return_val, ft_dst);
+
+	// printf("before memmove : \n");
+	// printf("src = %s\n", src);
+	// printf("dst = %s\n", dst);
+	// printf("after memmove :\n");
+	// return_val = memmove(dst, dst, n);
+	// printf("dst = %s\n", dst);
+	// printf("return value = %p should be equal to %p\n", return_val, dst);
+	// putchar('\n');
+
+	// // <- dst = src = NULL ->
+	// n = 2;
+	// printf("before ft_memmove : \n");
+	// printf("ft_src = %s\n", ft_src);
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("after ft_memmove  : \n");
+	// return_val = ft_memmove(NULL, NULL, n);
+	// printf("ft_dst = %s\n", ft_dst);
+	// printf("return value = %p should be equal to %p\n", return_val, NULL);
+
+	// printf("before memmove : \n");
+	// printf("src = %s\n", src);
+	// printf("dst = %s\n", dst);
+	// printf("after memmove :\n");
+	// return_val = memmove(NULL, NULL, n);
+	// printf("dst = %s\n", dst);
+	// printf("return value = %p should be equal to %p\n", return_val, NULL);
+	// putchar('\n');
+
+	// // <- len = 0 ->
+	// n = 0;
 	// printf("before ft_memmove : \n");
 	// printf("ft_src = %s\n", ft_src);
 	// printf("ft_dst = %s\n", ft_dst);

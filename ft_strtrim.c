@@ -2,52 +2,44 @@
 #include <stdlib.h>
 #include "libft.h"
 
-// char	*ft_strnew(size_t size)
+// static size_t	trimmedStrLen(char const *s, char const *set)
 // {
-// 	char	*str;
-// 	int		i;
+// 	size_t	i;
+// 	size_t	j;
+// 	size_t	s_len;
+// 	size_t	set_len;
+// 	size_t	trimmed_word_count;
+// 	int		isTrimmed;
 
-// 	str = (char *)malloc(sizeof(size_t) * size);
-// 	if (str == NULL)
-// 		return (NULL);
+// 	isTrimmed = 1;
+// 	s_len = ft_strlen(s);
+// 	set_len = ft_strlen(set);
 // 	i = 0;
-// 	while (size-- > 0)
-// 		str[i++] = '\0';
-// 	return (str);
+// 	while (i < s_len)
+// 	{
+// 		j = 0;
+// 		while (s[i] != set[j])
+// 		{
+// 			if (j == set_len - 1)
+// 				isTrimmed = 0;
+// 			j++;
+// 		}
+// 		if (isTrimmed == 0)
+// 			break ;
+// 		trimmed_word_count++;
+// 		i++;
+// 	}
 // }
 
-static size_t	trimedStrLen(char const *s)
-{
-	size_t	trimed_str_len;
+// char	*ft_strtrim(char const *s, char const *set)
+// {
+// 	char	*trimed_str;
+// 	size_t	*trimed_indexs;
 
-	trimed_str_len = 0;
-	while (*s != '\0')
-	{
-		if (!(*s == ' ' || *s == '\n' || *s == '\t'))
-			trimed_str_len++;
-		s++;
-	}
-	return (trimed_str_len);
-}
-
-char	*ft_strtrim(char const *s)
-{
-	char	*trimed_str;
-	char	*trimed_str_1st_ptr;
-
-	trimed_str = (char *)malloc(sizeof(char) * (trimedStrLen(s) + 1));
-	if (trimed_str == NULL)
-		return (NULL);
-	trimed_str_1st_ptr = trimed_str;
-	while (*s != '\0')
-	{
-		if (!(*s == ' ' || *s == '\n' || *s == '\t'))
-			*trimed_str++ = *s;
-		s++;
-	}
-	*trimed_str = '\0';
-	return (trimed_str_1st_ptr);
-}
+// 	trimed_str = (char *)malloc(sizeof(char) * (trimmedStrLen(s, set) + 1));
+// 	if (trimed_str == NULL)
+// 		return (NULL);
+// }
 
 // -- test code --
 // #include <stdio.h>

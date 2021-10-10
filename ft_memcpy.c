@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:34:07 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/08 17:40:15 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 12:21:01 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	void	*dst_tmp;
 
-	if (dst == NULL || src == NULL)
+	if (dst == src || n == 0)
 		return (dst);
 	dst_tmp = dst;
 	while (n-- > 0)
