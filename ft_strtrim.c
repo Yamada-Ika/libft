@@ -6,63 +6,142 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 12:23:10 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 20:23:13 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
-// static size_t	trimmedStrLen(char const *s, char const *set)
-// {
-// 	size_t	i;
-// 	size_t	j;
-// 	size_t	s_len;
-// 	size_t	set_len;
-// 	size_t	trimmed_word_count;
-// 	int		isTrimmed;
+static size_t	forward_trim_strlen(char const *s, char const *set)
+{
+	size_t	trim_count;
+	size_t	old_trim_count;
+	size_t	i;
+	size_t	set_len;
 
-// 	isTrimmed = 1;
-// 	s_len = ft_strlen(s);
-// 	set_len = ft_strlen(set);
-// 	i = 0;
-// 	while (i < s_len)
-// 	{
-// 		j = 0;
-// 		while (s[i] != set[j])
-// 		{
-// 			if (j == set_len - 1)
-// 				isTrimmed = 0;
-// 			j++;
-// 		}
-// 		if (isTrimmed == 0)
-// 			break ;
-// 		trimmed_word_count++;
-// 		i++;
-// 	}
-// }
+	set_len = ft_strlen(set);
+	trim_count = 0;
+	old_trim_count = 0;
+	while (*s != '\0')
+	{
+		i = -1;
+		while (++i < set_len)
+		{
+			if (*s == set[i])
+			{
+				trim_count++;
+				break;
+			}
+		}
+		if (trim_count == old_trim_count)
+			return (trim_count);
+		old_trim_count = trim_count;
+		s++;
+	}
+	return (trim_count);
+}
 
-// char	*ft_strtrim(char const *s, char const *set)
-// {
-// 	char	*trimed_str;
-// 	size_t	*trimed_indexs;
+static size_t	backward_trim_strlen(char const *s, char const *set)
+{
+	size_t	trim_count;
+	size_t	old_trim_count;
+	size_t	i;
+	size_t	j;
+	size_t	set_len;
+	size_t	s_len;
 
-// 	trimed_str = (char *)malloc(sizeof(char) * (trimmedStrLen(s, set) + 1));
-// 	if (trimed_str == NULL)
-// 		return (NULL);
-// }
+	set_len = ft_strlen(set);
+	s_len = ft_strlen(s);
+	trim_count = 0;
+	old_trim_count = 0;
+	j = 0;
+	while (j < s_len)
+	{
+		i = -1;
+		while (++i < set_len)
+		{
+			if (s[s_len - (j + 1)] == set[i])
+			{
+				trim_count++;
+				break;
+			}
+		}
+		if (trim_count == old_trim_count)
+			return (trim_count);
+		old_trim_count = trim_count;
+		j++;
+	}
+	return (trim_count);
+}
+
+char	*ft_strtrim(char const *s, char const *set)
+{
+	char	*trimmed_str;
+	size_t	trim_strlen;
+	size_t	forward_trim_len;
+	size_t	backward_trim_len;
+	size_t	s_len;
+	size_t	i;
+
+	if (s == NULL || set == NULL)
+		return (NULL);
+	forward_trim_len = forward_trim_strlen(s, set);
+	backward_trim_len = backward_trim_strlen(s, set);
+	s_len = ft_strlen(s);
+	if (forward_trim_len + backward_trim_len < s_len)
+		trim_strlen = s_len - (forward_trim_len + backward_trim_len);
+	else
+		trim_strlen = 0;
+	// printf("%zu + %zu = %zu\n", forward_trim_len, backward_trim_len, trim_strlen);
+	trimmed_str = (char *)malloc(sizeof(char) * (trim_strlen + 1));
+	if (trimmed_str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < trim_strlen)
+	{
+		trimmed_str[i] = s[forward_trim_len + i];
+		i++;
+	}
+	trimmed_str[i] = '\0';
+	return (trimmed_str);
+}
 
 // -- test code --
 // #include <stdio.h>
 
 // int main(void) {
-// 	char s[] = "Hel lo, w\nor\tld!"; // Hello,world! : 12 chars
+// 	char s[] = "1234AAA22331122";
+// 	char set[] = "1234";
+// 	char s1[] = "\t'#9' #include <stdio.h>\t'#9'";
+// 	char set1[] = "\t";
+// 	char s2[] = "  \t \t \n   \n\n\n\t";
+// 	char set2[] = " \n\t";
 // 	char *trimed_s;
 
-// 	trimed_s = ft_strtrim(s);
+	// // <- nortion case ->
+	// trimed_s = ft_strtrim(s, set);
+	// printf("trimed_s = %s\n", trimed_s);
+	// for (int i = 0; i < 4; i++)
+	// 	printf("%02x ", trimed_s[i]);
+	// putchar('\n');
+	// free(trimed_s);
+
+	// // <- teraterm case ->
+	// trimed_s = ft_strtrim(s1, set1);
+	// printf("trimed_s = %s\n", trimed_s);
+	// for (int i = 0; i < strlen("#include <stdio.h>"); i++)
+	// 	printf("%02x ", trimed_s[i]);
+	// putchar('\n');
+	// free(trimed_s);
+
+	// <- teraterm case ->
+// 	trimed_s = ft_strtrim(s2, set2);
 // 	printf("trimed_s = %s\n", trimed_s);
-// 	for (int i = 0; i < 13; i++)
+// 	for (int i = 0; i < strlen("#include <stdio.h>"); i++)
 // 		printf("%02x ", trimed_s[i]);
 // 	putchar('\n');
+// 	free(trimed_s);
 // }

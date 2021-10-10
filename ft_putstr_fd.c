@@ -1,22 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 23:47:43 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/10 23:47:43 by iyamada          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include "libft.h"
 
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	count;
-
-// 	count = 0;
-// 	while (s[count] != '\0')
-// 		count++;
-// 	return (count);
-// }
-
 void	ft_putstr_fd(char const *c, int fd)
 {
-	write(fd, (const void *)c, ft_strlen(c));
+	if (c == NULL)
+		;
+	else
+		write(fd, (const void *)c, ft_strlen(c));
 }
 
 // -- test code --
 // int main(void){
 // 	ft_putstr_fd("hello, world!", 1);
+// 	ft_putstr_fd(NULL, 1);
 // }

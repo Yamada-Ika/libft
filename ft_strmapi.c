@@ -1,28 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 23:48:21 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/10 23:48:22 by iyamada          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdlib.h>
 #include "libft.h"
 
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	count;
-
-// 	count = 0;
-// 	while (s[count] != '\0')
-// 		count++;
-// 	return (count);
-// }
-
-static char	*createNullStr(size_t size)
+static char	*alloc_null_str(size_t size)
 {
 	char	*str;
-	int		i;
 
 	str = (char *)malloc(sizeof(size_t) * size);
 	if (str == NULL)
 		return (NULL);
-	i = 0;
-	while (size-- > 0)
-		str[i++] = '\0';
+	ft_bzero(str, size);
 	return (str);
 }
 
@@ -31,7 +30,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int		i;
 	char				*new_str;
 
-	new_str = createNullStr(ft_strlen(s) + 1);
+	if (s == NULL)
+		return (NULL);
+	new_str = alloc_null_str(ft_strlen(s) + 1);
 	if (new_str == NULL)
 		return (NULL);
 	i = 0;

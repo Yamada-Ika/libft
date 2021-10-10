@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 02:35:03 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 17:18:08 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/10 20:24:12 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	s_len;
 
 	substr = (char *)alloc_null_str(len + 1);
-	printf("%zu\n", len + 1);
+	// printf("%zu\n", len + 1);
 	if (substr == NULL || s == NULL)
 		return (NULL);
 	s_len = ft_strlen(s);

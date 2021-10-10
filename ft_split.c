@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/10 23:47:47 by iyamada          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdlib.h>
 
@@ -11,6 +23,8 @@ char	**ft_split(char const *s, char c)
 	char	**strArrayPointTo;
 	size_t	strIndex;
 
+	if (s == NULL)
+		return (NULL);
 	strArray = allocMem4StrArray(s, c);
 	if (strArray == NULL)
 		return (NULL);
@@ -33,29 +47,6 @@ char	**ft_split(char const *s, char c)
 	}
 	return (strArrayPointTo);
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void) {
-// 	char s[] = "*hello*fellow***students*", c = '*';
-// 	char **return_value;
-// 	int i;
-
-// 	printf("s = %s, c = %c\n", s, c);
-// 	return_value = ft_split(s, c);
-// 	i = 0;
-// 	while (return_value[i] != NULL) {
-// 		printf("return_value[%d] = %s\n", i, return_value[i]);
-// 		for (unsigned long j = 0; j < strlen(return_value[i]) + 1; j++)
-// 			printf("%02x ", return_value[i][j]);
-// 		putchar('\n');
-// 		i++;
-// 	}
-// 	printf("NULL ended? : %p\n", return_value[i]);
-// 	free(return_value);
-// }
-// -- test code --
 
 // Get the number of words obtained when the string s is divided by c.
 static size_t	getSplitWordsNum(char const *s, char c)
@@ -135,3 +126,41 @@ static char	**allocMem4StrArray(char const *s, char c)
 	free(eachWordCounts);
 	return (strArray);
 }
+
+// -- test code --
+// #include <stdio.h>
+
+// int main(void) {
+// 	char s[] = "split  ||this|for|me|||||!|";
+// 	char s1[] = "      split       this for   me  !       ";
+// 	char **return_value;
+// 	int i;
+
+// 	// <- tester ->
+// 	printf("s = %s, c = %c\n", s, '|');
+// 	return_value = ft_split(s, '|');
+// 	i = 0;
+// 	while (return_value[i] != NULL) {
+// 		printf("return_value[%d] = %s\n", i, return_value[i]);
+// 		for (unsigned long j = 0; j < strlen(return_value[i]) + 1; j++)
+// 			printf("%02x ", return_value[i][j]);
+// 		putchar('\n');
+// 		i++;
+// 	}
+// 	printf("NULL ended? : %p\n", return_value[i]);
+// 	free(return_value);
+
+	// // <- tester ->
+	// printf("s = %s, c = %c\n", s1, ' ');
+	// return_value = ft_split(s1, ' ');
+	// i = 0;
+	// while (return_value[i] != NULL) {
+	// 	printf("return_value[%d] = %s\n", i, return_value[i]);
+	// 	for (unsigned long j = 0; j < strlen(return_value[i]) + 1; j++)
+	// 		printf("%02x ", return_value[i][j]);
+	// 	putchar('\n');
+	// 	i++;
+	// }
+	// printf("NULL ended? : %p\n", return_value[i]);
+	// free(return_value);
+// }
