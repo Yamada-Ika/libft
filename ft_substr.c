@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 02:35:03 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 14:54:25 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 16:41:07 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	// }
 	// free(ret);
 
+	// // <- len = 0 ->
+	// len = 0;
+	// start = 10;
+	// ret = ft_substr(s2, start, len);
+	// printf("str    : %s\n", s2);
+	// printf("substr : %s\n", ret);
+	// for (int i = 0; i < len+3; i++) {
+	// 	printf("substr[%d] = %02x : %c\n", i, ret[i], ret[i]);
+	// }
+	// free(ret);
+
 	// // <- normal ->
 	// len = 4;
 	// start = 4;
@@ -103,14 +114,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	// }
 	// free(ret);
 
-	// // <- normal (access over s_len) ->
-	// len = 10;
-	// start = 4;
-	// ret = ft_substr(s3, start, len);
-	// printf("str    : %s\n", s3);
-	// printf("substr : %s\n", ret);
-	// for (int i = 0; i < len+3; i++) {
-	// 	printf("substr[%d] = %02x : %c\n", i, ret[i], ret[i]);
-	// }
-	// free(ret);
+// 	// <- s_len >> len ->
+// 	len = 100;
+// 	start = 4;
+// 	ret = ft_substr(s3, start, len);
+// 	printf("str    : %s\n", s3);
+// 	printf("substr : %s\n", ret);
+// 	for (int i = 0; i < len+3; i++) {
+// 		printf("substr[%d] = %02x : %c\n", i, ret[i], ret[i]);
+// 	}
+// 	free(ret);
 // }

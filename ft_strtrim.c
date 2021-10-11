@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:12:07 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:36:46 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ char	*ft_strtrim(char const *s, char const *set)
 		trim_strlen = s_len - (forward_trim_len + backward_trim_len);
 	else
 		trim_strlen = 0;
-	// printf("%zu + %zu = %zu\n", forward_trim_len, backward_trim_len, trim_strlen);
 	trimmed_str = (char *)malloc(sizeof(char) * (trim_strlen + 1));
 	if (trimmed_str == NULL)
 		return (NULL);

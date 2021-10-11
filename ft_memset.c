@@ -6,20 +6,20 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:33 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:08:15 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:31:56 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *buf, int ch, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	void	*bufPointTo;
+	void	*b_ptr;
 
-	bufPointTo = buf;
-	while (n-- > 0)
-		*(unsigned char *)(buf++) = (unsigned char)ch;
-	return (bufPointTo);
+	b_ptr = b;
+	while (len-- > 0)
+		*(unsigned char *)(b++) = (unsigned char)c;
+	return (b_ptr);
 }
 
 // -- test code --

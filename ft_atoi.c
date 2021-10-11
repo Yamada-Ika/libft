@@ -6,13 +6,10 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 00:58:47 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 16:37:22 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <limits.h>
 #include "libft.h"
 
 static int	isspace_helper(int c)
@@ -94,7 +91,8 @@ int	ft_atoi(const char *str)
 	// char str[] = "92233720368547758079";
 	// char str[] = "-2147483649";
 	// char str[] = "\e06050";
-// 	char str[] = "\t 06050";
+	// char str[] = "\t 06050";
+// 	char str[] = "+100";
 
 // 	printf("atoi :    %d\n", atoi(str));
 // 	printf("ft_atoi : %d\n", ft_atoi(str));

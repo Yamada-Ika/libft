@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:34 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 01:00:37 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 16:15:39 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
 	char	*located_at;
+	size_t	s_len;
 
 	located_at = NULL;
-	i = ft_strlen(s) + 1;
-	while (--i >= 0)
+	s_len = ft_strlen(s);
+	s = s + s_len;
+	while (s_len-- > 0)
 	{
-		if (s[i] == c)
+		if (*s == (const char)c)
 		{
-			located_at = (char *)&s[i];
+			located_at = (char *)s;
 			break ;
 		}
+		s--;
 	}
 	return (located_at);
 }
@@ -34,10 +36,9 @@ char	*ft_strrchr(const char *s, int c)
 // #include <stdio.h>
 
 // int main(void){
-// 	char s[] = "0123456789", c = '0';
+// 	char s[] = "0123456789";
+// 	int c = 3;
 
-// 	printf("strrchr :    %p address of c in s : %p\n", 
-// 		strrchr(s, c), &s[c ? c - '0' : 10]);
-// 	printf("ft_strrchr : %p address of c in s : %p\n", 
-// 		ft_strrchr(s, c), &s[c ? c - '0' : 10]);
+// 	printf("strrchr :    %p %p\n", strrchr(s, c), &s[10]);
+// 	printf("ft_strrchr : %p %p\n", ft_strrchr(s, c), &s[10]);
 // }
