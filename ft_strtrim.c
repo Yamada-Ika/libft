@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 00:30:43 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/12 00:35:46 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ char	*ft_strtrim(char const *s, char const *set)
 	s_len = ft_strlen(s) + 1;
 	forward_trim_len = forward_trim_strlen(s, set);
 	backward_trim_len = backward_trim_strlen(s, set);
+	trim_strlen = s_len - (forward_trim_len + backward_trim_len);
 	if (forward_trim_len + backward_trim_len >= s_len)
 		trim_strlen = 1;
-	trim_strlen = s_len - (forward_trim_len + backward_trim_len);
 	trimmed_str = (char *)malloc(sizeof(char) * trim_strlen);
 	if (trimmed_str == NULL)
 		return (NULL);
@@ -84,13 +84,21 @@ char	*ft_strtrim(char const *s, char const *set)
 // 	char set2[] = " \n\t";
 // 	char *trimed_s;
 
-// 	// <- nortion case ->
-// 	trimed_s = ft_strtrim(s, set);
-// 	printf("trimed_s = %s\n", trimed_s);
-// 	for (int i = 0; i < 4; i++)
-// 		printf("%02x ", trimed_s[i]);
-// 	putchar('\n');
-// 	free(trimed_s);
+	// // <- nortion case ->
+	// trimed_s = ft_strtrim(s, set);
+	// printf("trimed_s = %s\n", trimed_s);
+	// for (int i = 0; i < 4; i++)
+	// 	printf("%02x ", trimed_s[i]);
+	// putchar('\n');
+	// free(trimed_s);
+
+	// // <- fully trimmed ->
+	// trimed_s = ft_strtrim(s2, set2);
+	// printf("trimed_s = %s\n", trimed_s);
+	// for (int i = 0; i < 4; i++)
+	// 	printf("%02x ", trimed_s[i]);
+	// putchar('\n');
+	// free(trimed_s);
 
 	// // <- teraterm case ->
 	// trimed_s = ft_strtrim(s1, set1);
