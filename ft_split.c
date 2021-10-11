@@ -6,128 +6,140 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 18:13:04 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 22:05:54 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static size_t	getSplitWordsNum(char const *s, char c);
-static size_t	*getEachWordCounts(char const *s, char c, size_t splitWordsNum);
-static char		**allocMem4StrArray(char const *s, char c);
-
-char	**ft_split(char const *s, char c)
+static void	*mem_free(char **strs, int i, size_t *char_nums)
 {
-	char	**strArray;
-	char	**strArrayPointTo;
-	size_t	strIndex;
-
-	if (s == NULL)
-		return (NULL);
-	strArray = allocMem4StrArray(s, c);
-	if (strArray == NULL)
-		return (NULL);
-	strArrayPointTo = strArray;
-	strIndex = 0;
-	while (*s != '\0')
+	if (i < 0)
+		free(strs);
+	else
 	{
-		if (*s != c)
+		while (i > 0)
 		{
-			(*strArray)[strIndex] = *s;
-			strIndex++;
+			free(strs[i]);
+			i--;
 		}
-		else
-		{
-			if (strIndex > 0)
-			{
-				(*strArray)[strIndex] = '\0';
-				strArray++;
-			}
-			strIndex = 0;
-		}
-		s++;
+		free(char_nums);
 	}
-	// *strArray = NULL;
-	return (strArrayPointTo);
-}
-
-// Get the number of words obtained when the string s is divided by c.
-static size_t	getSplitWordsNum(char const *s, char c)
-{
-	size_t	wordIndex;
-	size_t	splitWordsNum;
-
-	splitWordsNum = 0;
-	wordIndex = 0;
-	while (*s != '\0')
-	{
-		if (*s != c)
-		{
-			if (wordIndex == 0)
-				splitWordsNum++;
-			wordIndex++;
-		}
-		else
-			wordIndex = 0;
-		s++;
-	}
-	return (splitWordsNum);
+	return (NULL);
 }
 
 // Get the number of characters in a word that has been split.
-static size_t	*getEachWordCounts(char const *s, char c, size_t splitWordsNum)
+static size_t	*get_char_nums(char const *s, char c, size_t split_num)
 {
-	size_t	*EachWordCounts;
-	size_t	wordCount;
+	size_t	*char_nums;
+	size_t	word_count;
 	size_t	i;
 
-	EachWordCounts = (size_t *)malloc(sizeof(size_t) * splitWordsNum);
-	if (EachWordCounts == NULL)
+	char_nums = (size_t *)malloc(sizeof(size_t) * split_num);
+	if (char_nums == NULL)
 		return (NULL);
-	wordCount = 0;
+	word_count = 0;
 	i = -1;
 	while (1)
 	{
 		if (*s != c && *s != '\0')
-			wordCount++;
+			word_count++;
 		else
 		{
-			if (wordCount > 0)
-				EachWordCounts[++i] = wordCount;
-			wordCount = 0;
+			if (word_count > 0)
+				char_nums[++i] = word_count;
+			word_count = 0;
 		}
 		if (*s == '\0')
 			break ;
 		s++;
 	}
-	return (EachWordCounts);
+	return (char_nums);
+}
+
+// Get the number of words obtained when the string s is divided by c.
+static size_t	get_split_num(char const *s, char c)
+{
+	size_t	i;
+	size_t	split_num;
+
+	split_num = 0;
+	i = 0;
+	while (*s != '\0')
+	{
+		if (*s != c)
+		{
+			if (i == 0)
+				split_num++;
+			i++;
+		}
+		else
+			i = 0;
+		s++;
+	}
+	return (split_num);
 }
 
 // Create a two-dimensinal array
-static char	**allocMem4StrArray(char const *s, char c)
+static char	**alloc_mem(char const *s, char c)
 {
-	char	**strArray;
-	size_t	*eachWordCounts;
-	size_t	splitWordsNum;
+	char	**strs;
+	size_t	*char_nums;
+	size_t	split_num;
 	size_t	i;
 
-	splitWordsNum = getSplitWordsNum(s, c);
-	strArray = (char **)malloc(sizeof(char) * (splitWordsNum + 1));
-	if (strArray == NULL)
+	split_num = get_split_num(s, c);
+	printf("split_num = %zu\n", split_num);
+	strs = (char **)malloc(sizeof(char) * (split_num + 1));
+	if (strs == NULL)
 		return (NULL);
-	eachWordCounts = getEachWordCounts(s, c, splitWordsNum);
-	if (eachWordCounts == NULL)
-		return (NULL);
+	char_nums = get_char_nums(s, c, split_num);
+	printf("char_nums[0] = %zu\n", char_nums[0]);
+	if (char_nums == NULL)
+		return (mem_free(strs, -1, NULL));
 	i = -1;
-	while (++i < splitWordsNum)
+	while (++i < split_num)
 	{
-		strArray[i] = (char *)malloc(sizeof(char) * (eachWordCounts[i] + 1));
-		if (strArray[i] == NULL)
-			return (NULL);
+		strs[i] = (char *)malloc(sizeof(char) * (char_nums[i] + 1));
+		if (strs[i] == NULL)
+			return (mem_free(strs, --i, char_nums));
 	}
-	strArray[i] = NULL;
-	free(eachWordCounts);
-	return (strArray);
+	strs[i] = NULL;
+	free(char_nums);
+	return (strs);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**strs;
+	char	**strsPointTo;
+	size_t	i;
+
+	if (s == NULL)
+		return (NULL);
+	strs = alloc_mem(s, c);
+	printf("after alloc_mem?\n");
+	if (strs == NULL)
+		return (NULL);
+	strsPointTo = strs;
+	while (*strs != NULL)
+	{
+		i = 0;
+		while (*s == c)
+			s++;
+		while (*s != c)
+		{
+			// *(*strs++) = *s++;
+			(*strs)[i] = *s;
+			i++;
+			s++;
+		}
+		(*strs)[i] = '\0';
+		printf("segfalu?\n");
+		strs++;
+	}
+	return (strsPointTo);
 }
 
 // -- test code --

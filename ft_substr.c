@@ -6,29 +6,29 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 02:35:03 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 16:41:07 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 20:13:26 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*alloc_null_str(size_t size)
-{
-	char	*str;
+// static char	*alloc_null_str(size_t size)
+// {
+// 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * size);
-	if (str == NULL)
-		return (NULL);
-	ft_bzero(str, size);
-	return (str);
-}
+// 	str = (char *)malloc(sizeof(char) * size);
+// 	if (str == NULL)
+// 		return (NULL);
+// 	ft_bzero(str, size);
+// 	return (str);
+// }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	s_len;
 
-	substr = (char *)alloc_null_str(len + 1);
+	substr = (char *)ft_calloc(len + 1, sizeof(char));
 	if (substr == NULL || s == NULL)
 		return (NULL);
 	s_len = ft_strlen(s);
