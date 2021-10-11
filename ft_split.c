@@ -6,11 +6,12 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 17:48:35 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 18:12:02 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static size_t	getSplitWordsNum(char const *s, char c);
 static size_t	*getEachWordCounts(char const *s, char c, size_t splitWordsNum);
@@ -112,10 +113,14 @@ static char	**allocMem4StrArray(char const *s, char c)
 	size_t	i;
 
 	splitWordsNum = getSplitWordsNum(s, c);
+	printf("splitWordsNum = %zu\n", splitWordsNum);
 	strArray = (char **)malloc(sizeof(char) * (splitWordsNum + 1));
 	if (strArray == NULL)
 		return (NULL);
 	eachWordCounts = getEachWordCounts(s, c, splitWordsNum);
+	for (int i = 0; i < splitWordsNum; i++) {
+		printf("eachWordCounts[%d] = %zu\n", i, eachWordCounts[i]);
+	}
 	if (eachWordCounts == NULL)
 		return (NULL);
 	i = -1;
