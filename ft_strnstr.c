@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:08:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 16:36:04 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 16:44:18 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	// printf("ft_strnstr : %p should be equal to %p\n", 
 	// 	ft_strnstr(haystack, "\0f", len), &haystack[4]);
 	// printf("ft_strnstr : %s\n",strnstr(haystack, "\0f", len));
-}
+// }
