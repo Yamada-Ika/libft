@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 00:35:46 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/12 00:47:20 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ static size_t	backward_trim_strlen(char const *s, char const *set)
 	size_t	trim_count;
 	size_t	s_len;
 
-	s_len = ft_strlen(s);
-	s = s + s_len;
 	trim_count = 0;
-	while (s_len-- + 1 > 0)
+	s_len = ft_strlen(s);
+	if (s_len == 0)
+		return (trim_count);
+	s = s + s_len - 1;
+	while (s_len-- > 0)
 	{
 		if (ft_strchr(set, (int)*s) == NULL)
 			break ;
@@ -58,16 +60,16 @@ char	*ft_strtrim(char const *s, char const *set)
 
 	if (s == NULL || set == NULL)
 		return (NULL);
-	s_len = ft_strlen(s) + 1;
+	s_len = ft_strlen(s);
 	forward_trim_len = forward_trim_strlen(s, set);
 	backward_trim_len = backward_trim_strlen(s, set);
 	trim_strlen = s_len - (forward_trim_len + backward_trim_len);
 	if (forward_trim_len + backward_trim_len >= s_len)
-		trim_strlen = 1;
-	trimmed_str = (char *)malloc(sizeof(char) * trim_strlen);
+		trim_strlen = 0;
+	trimmed_str = (char *)malloc(sizeof(char) * (trim_strlen + 1));
 	if (trimmed_str == NULL)
 		return (NULL);
-	ft_bzero((void *)trimmed_str, trim_strlen);
+	ft_bzero((void *)trimmed_str, trim_strlen + 1);
 	ft_memcpy(trimmed_str, s + forward_trim_len, trim_strlen);
 	return (trimmed_str);
 }
