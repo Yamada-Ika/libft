@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:04 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 15:03:43 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:13:20 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_calloc(size_t count, size_t size)
 	mem = malloc(size * count);
 	if (mem == NULL)
 		return (NULL);
-	ft_bzero(mem, count);
+	ft_bzero(mem, size * count);
 	return (mem);
 }
 
@@ -36,15 +36,15 @@ void	*ft_calloc(size_t count, size_t size)
 // 	void *lib;
 // 	size_t count;
 
-	// // < normal >
-	// count = 10;
-	// ft = ft_calloc(count, sizeof(int));
-	// lib = calloc(count, sizeof(int));
-	// printf("diff : %d\n", memcmp(ft, lib, count));
-	// free(ft);
-	// free(lib);
+// 	// < normal >
+// 	count = 10;
+// 	ft = ft_calloc(count, sizeof(int));
+// 	lib = calloc(count, sizeof(int));
+// 	printf("diff : %d\n", memcmp(ft, lib, count));
+// 	free(ft);
+// 	free(lib);
 
-	// < empty string >
+	// // < empty string >
 	// count = 0;
 	// ft = ft_calloc(count, sizeof(char));
 	// lib = calloc(count, sizeof(char));
