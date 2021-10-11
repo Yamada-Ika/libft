@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 02:35:03 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:12:15 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 14:13:39 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ static char	*alloc_null_str(size_t size)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
-	size_t	i;
+	// size_t	i;
 	size_t	s_len;
 
 	substr = (char *)alloc_null_str(len + 1);
-	// printf("%zu\n", len + 1);
 	if (substr == NULL || s == NULL)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (s_len == 0 || s_len <= start || len == 0)
 		return (substr);
-	i = 0;
-	while (i < len && start + i < s_len)
-	{
-		substr[i] = s[start + i];
-		i++;
-	}
-	substr[i] = '\0';
+	// i = 0;
+	// while (i < len && start + i < s_len)
+	// {
+	// 	substr[i] = s[start + i];
+	// 	i++;
+	// }
+	// substr[i] = '\0';
+	ft_strlcpy(substr, s + start, len + 1);
 	return (substr);
 }
 
