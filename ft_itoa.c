@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:29 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 19:04:55 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 19:07:30 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,14 +89,11 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	i_len;
-	// size_t	i;
 
 	i_len = get_num_of_digits(n);
 	str = (char *)malloc(sizeof(char) * (i_len + 1));
 	if (str == NULL)
 		return (NULL);
-	// i = 0;
-	// str = itostr(n, str, str_i_len, &i);
 	*(str + i_len) = '\0';
 	itostr(n, str + i_len - 1, i_len, 0);
 	return (str);
