@@ -6,12 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 22:05:54 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 22:07:18 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static void	*mem_free(char **strs, int i, size_t *char_nums)
 {
@@ -90,12 +89,10 @@ static char	**alloc_mem(char const *s, char c)
 	size_t	i;
 
 	split_num = get_split_num(s, c);
-	printf("split_num = %zu\n", split_num);
 	strs = (char **)malloc(sizeof(char) * (split_num + 1));
 	if (strs == NULL)
 		return (NULL);
 	char_nums = get_char_nums(s, c, split_num);
-	printf("char_nums[0] = %zu\n", char_nums[0]);
 	if (char_nums == NULL)
 		return (mem_free(strs, -1, NULL));
 	i = -1;
@@ -119,7 +116,6 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	strs = alloc_mem(s, c);
-	printf("after alloc_mem?\n");
 	if (strs == NULL)
 		return (NULL);
 	strsPointTo = strs;
@@ -136,7 +132,6 @@ char	**ft_split(char const *s, char c)
 			s++;
 		}
 		(*strs)[i] = '\0';
-		printf("segfalu?\n");
 		strs++;
 	}
 	return (strsPointTo);
