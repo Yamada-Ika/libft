@@ -6,12 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:47:47 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 10:24:38 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static size_t	getSplitWordsNum(char const *s, char c);
 static size_t	*getEachWordCounts(char const *s, char c, size_t splitWordsNum);
@@ -150,7 +149,7 @@ static char	**allocMem4StrArray(char const *s, char c)
 // 	printf("NULL ended? : %p\n", return_value[i]);
 // 	free(return_value);
 
-	// // <- tester ->
+	// <- tester ->
 	// printf("s = %s, c = %c\n", s1, ' ');
 	// return_value = ft_split(s1, ' ');
 	// i = 0;

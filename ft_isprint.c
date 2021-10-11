@@ -6,11 +6,9 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:19 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:46:20 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:01:41 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
 
 int	ft_isprint(int c)
 {

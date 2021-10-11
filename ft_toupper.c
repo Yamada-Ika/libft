@@ -6,16 +6,16 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 23:49:44 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/09 23:53:24 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:12:30 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 int	ft_toupper(int c)
 {
-	if (97 <= c && c <= 122)
-		return (c - 32);
+	if ('a' <= c && c <= 'z')
+		return (c - ('a' - 'A'));
 	else
 		return (c);
 }

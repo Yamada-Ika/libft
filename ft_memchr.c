@@ -6,26 +6,26 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:40 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:46:41 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:45:11 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	void	*address;
+	void	*ptr;
 
-	address = NULL;
+	ptr = NULL;
 	while (n-- > 0)
 	{
 		if (*(unsigned char *)s++ == (unsigned char)c)
 		{
-			address = (void *)--s;
+			ptr = (void *)--s;
 			break ;
 		}
 	}
-	return (address);
+	return (ptr);
 }
 
 // -- test code --

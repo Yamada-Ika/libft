@@ -6,14 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 21:35:45 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 21:58:38 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:09:06 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <limits.h>
 #include "libft.h"
-#include <stdio.h>
 
 static void	ft_putnbr_fd_helper(int n, int fd, int offset)
 {

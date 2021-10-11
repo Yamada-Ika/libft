@@ -6,11 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:33 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:47:33 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:08:15 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *buf, int ch, size_t n)
 {

@@ -6,11 +6,9 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 11:17:09 by yamadaiori        #+#    #+#             */
-/*   Updated: 2021/10/08 12:14:33 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:01:06 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
 
 int	ft_isalpha(int c)
 {

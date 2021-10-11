@@ -6,12 +6,10 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:21 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:48:22 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:11:37 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
 static char	*alloc_null_str(size_t size)

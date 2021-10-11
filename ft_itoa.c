@@ -6,14 +6,10 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:29 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:46:38 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:06:51 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <stdio.h>
 #include "libft.h"
 
 size_t	get_digits(int n)

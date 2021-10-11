@@ -6,25 +6,13 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:57 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:47:57 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:10:37 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
 
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	count;
-
-// 	count = 0;
-// 	while (s[count] != '\0')
-// 		count++;
-// 	return (count);
-// }
-
-char	*ft_strcpy(char *dst, const char *src)
+static char	*str_copy(char *dst, const char *src)
 {
 	char	*dst_1st_address;
 
@@ -35,18 +23,6 @@ char	*ft_strcpy(char *dst, const char *src)
 	return (dst_1st_address);
 }
 
-//  char *
-//  strdup(const char *s1);
-
-//  The strdup() function allocates sufficient memory
-//  for a copy of the string s1, does the copy, and
-//  returns a pointer to it.  The pointer may subse-
-//  quently be used as an argument to the function
-//  free(3).
-
-//  If insufficient memory is available, NULL is
-//  returned and errno is set to ENOMEM.
-
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;
@@ -54,7 +30,7 @@ char	*ft_strdup(const char *s1)
 	s2 = (char *)malloc(ft_strlen(s1) + 1);
 	if (s2 == NULL)
 		return (NULL);
-	return (ft_strcpy(s2, s1));
+	return (str_copy(s2, s1));
 }
 
 // -- test code --

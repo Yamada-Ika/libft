@@ -6,58 +6,28 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:34 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:48:34 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 01:00:37 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
-
-// size_t	ft_strlen(const char *s)
-// {
-// 	size_t	count;
-
-// 	count = 0;
-// 	while (s[count] != '\0')
-// 		count++;
-// 	return (count);
-// }
-
-//  char *
-//  strrchr(const char *s, int c);
-
-// 	DESCRIPTION
-//  The strchr() function locates the first occurrence of c 
-//  (converted to a char) in the string pointed to by
-//  s.  The terminating null character is considered to be 
-//  part of the string; therefore if c is `\0', the
-//  functions locate the terminating `\0'.
-
-//  The strrchr() function is identical to strchr(), except 
-//  it locates the last occurrence of c.
-
-// 	RETURN VALUES
-//  The functions strchr() and strrchr() return a pointer to 
-//  the located character, or NULL if the character
-//  does not appear in the string.
-
 
 char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	char	*c_located_at;
+	char	*located_at;
 
-	c_located_at = NULL;
+	located_at = NULL;
 	i = ft_strlen(s) + 1;
-	while (i-- > 0)
+	while (--i >= 0)
 	{
-		if (s[i] == (char)c)
+		if (s[i] == c)
 		{
-			c_located_at = (char *)&s[i];
+			located_at = (char *)&s[i];
 			break ;
 		}
 	}
-	return (c_located_at);
+	return (located_at);
 }
 
 // -- test code --

@@ -6,14 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 20:23:13 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:12:07 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	forward_trim_strlen(char const *s, char const *set)
 {

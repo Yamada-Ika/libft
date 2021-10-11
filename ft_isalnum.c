@@ -6,36 +6,15 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:07 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:46:08 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 00:01:00 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
-
-// int	ft_isalpha(int c)
-// {
-// 	if (('a' <= (char)c && (char)c <= 'z')
-// 		|| ('A' <= (char)c && (char)c <= 'Z'))
-// 		return (1);
-// 	else
-// 		return (0);
-// }
-
-// int	ft_isdigit(int c)
-// {
-// 	if ('0' <= (char)c && (char)c <= '9')
-// 		return (1);
-// 	else
-// 		return (0);
-// }
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (1);
-	else
-		return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
 
 // -- test code --
