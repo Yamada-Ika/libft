@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 22:07:18 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 23:24:53 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,6 @@ char	**ft_split(char const *s, char c)
 			s++;
 		while (*s != c)
 		{
-			// *(*strs++) = *s++;
 			(*strs)[i] = *s;
 			i++;
 			s++;

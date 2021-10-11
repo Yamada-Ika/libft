@@ -6,22 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:21 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 15:17:57 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 23:27:44 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*alloc_null_str(size_t size)
-{
-	char	*str;
-
-	str = (char *)malloc(sizeof(char) * size);
-	if (str == NULL)
-		return (NULL);
-	ft_bzero(str, size);
-	return (str);
-}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -30,7 +19,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (s == NULL)
 		return (NULL);
-	new_str = alloc_null_str(ft_strlen(s) + 1);
+	new_str = ft_calloc(ft_strlen(s) + 1, sizeof(char));
 	if (new_str == NULL)
 		return (NULL);
 	i = 0;
