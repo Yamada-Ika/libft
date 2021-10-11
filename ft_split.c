@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 17:17:48 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 17:46:28 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	**ft_split(char const *s, char c)
 		}
 		s++;
 	}
+	*strArray = NULL;
 	return (strArrayPointTo);
 }
 
@@ -124,7 +125,7 @@ static char	**allocMem4StrArray(char const *s, char c)
 		if (strArray[i] == NULL)
 			return (NULL);
 	}
-	strArray[i] = NULL;
+	// strArray[i] = NULL;
 	free(eachWordCounts);
 	return (strArray);
 }
@@ -142,17 +143,19 @@ static char	**allocMem4StrArray(char const *s, char c)
 // 	printf("s = %s, c = %c\n", s, '|');
 // 	return_value = ft_split(s, '|');
 // 	i = 0;
-// 	while (return_value[i] != NULL) {
+// 	while (i < 6) {
 // 		printf("return_value[%d] = %s\n", i, return_value[i]);
+// 		if (return_value[i] == NULL)
+// 			break;
 // 		for (unsigned long j = 0; j < strlen(return_value[i]) + 1; j++)
 // 			printf("%02x ", return_value[i][j]);
 // 		putchar('\n');
 // 		i++;
 // 	}
-// 	printf("NULL ended? : %p\n", return_value[i]);
+// 	// printf("NULL ended? : %p\n", return_value[i]);
 // 	free(return_value);
 
-	// <- tester ->
+	// // <- tester ->
 	// printf("s = %s, c = %c\n", s1, ' ');
 	// return_value = ft_split(s1, ' ');
 	// i = 0;

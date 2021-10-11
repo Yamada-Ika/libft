@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:59:00 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 01:25:22 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 16:59:32 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 // 	size_t dstsize;
 
 // 	dstsize = strlen("the cake is a lie !\0I'm hidden lol\r\n") + 4;
-// 	printf("dstsize = %zu, src_len = %zu, dst_len = %zu\n", dstsize, strlen(src), strlen(dst));
+	// printf("dstsize = %zu, src_len = %zu, dst_len = %zu\n", 
+	// dstsize, strlen(src), strlen(dst));
 // 	return_value = strlcat(dst, src, dstsize);
 // 	printf("strlcat    : %s return value : %zu\n", dst, return_value);
 	// for (size_t i = 0; i < return_value + 10; i++) {
