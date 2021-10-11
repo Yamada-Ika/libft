@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:57 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:10:37 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/12 00:24:25 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static char	*str_copy(char *dst, const char *src)
 {
-	char	*dst_1st_address;
+	char	*dst_ptr;
 
-	dst_1st_address = dst;
+	dst_ptr = dst;
 	while (*src != '\0')
 		*dst++ = *src++;
 	*dst = '\0';
-	return (dst_1st_address);
+	return (dst_ptr);
 }
 
 char	*ft_strdup(const char *s1)
