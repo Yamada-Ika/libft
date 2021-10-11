@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:53 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:09:32 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 15:48:19 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,30 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
-	char	*c_located_at;
+	char	*located_at;
 
-	c_located_at = NULL;
-	i = 0;
+	located_at = NULL;
 	while (1)
 	{
-		if (s[i] == (char)c)
+		if (*s == (const char)c)
 		{
-			c_located_at = (char *)&s[i];
+			located_at = (char*)s;
 			break ;
 		}
-		if (s[i] == '\0')
+		if (*s == '\0')
 			break ;
-		i++;
+		s++;
 	}
-	return (c_located_at);
+	return (located_at);
 }
 
 // -- test code --
 // #include <stdio.h>
 
 // int main(void){
-// 	char s[] = "0123", c = '2';
+// 	char s[] = "0123";
+// 	int c = 0;
 
 // 	printf("strchr :    %p\n", strchr(s, c));
-// 	printf("ft_strchr : %p\n", ft_strchr(s, c));
+// 	printf("ft_strchr : %p %p\n", ft_strchr(s, c), &s[4]);
 // }
