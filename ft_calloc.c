@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:04 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 14:35:33 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 14:46:09 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*alloc_mem;
+	void	*mem;
 
 	if (count == 0 || size == 0)
 	{
-		alloc_mem = malloc(1);
-		if (alloc_mem == NULL)
+		mem = malloc(1);
+		if (mem == NULL)
 			return (NULL);
-		ft_bzero(alloc_mem, 1);
-		return (alloc_mem);
+		ft_bzero(mem, 1);
+		return (mem);
 	}
-	alloc_mem = malloc(size * count);
-	if (alloc_mem == NULL)
+	mem = malloc(size * count);
+	if (mem == NULL)
 		return (NULL);
-	ft_bzero(alloc_mem, count);
-	return (alloc_mem);
+	ft_bzero(mem, count);
+	return (mem);
 }
 
 // test code
@@ -51,7 +51,7 @@ void	*ft_calloc(size_t count, size_t size)
 // 	count = 10;
 // 	ft = ft_calloc(count, 0);
 // 	lib = calloc(count, 0);
-// 	printf("diff : %d\n", memcmp(ft, lib, count));
+// 	printf("diff : %d\n", memcmp(ft, lib, 1));
 // 	free(ft);
 // 	free(lib);
 
@@ -70,4 +70,12 @@ void	*ft_calloc(size_t count, size_t size)
 // 	// printf("diff : %d\n", memcmp(ft, lib, count));
 // 	// free(ft);
 // 	// free(lib);
+
+// 	// < count = 1 >
+// 	count = 1;
+// 	ft = ft_calloc(count, sizeof(int));
+// 	lib = calloc(count, sizeof(int));
+// 	printf("diff : %d\n", memcmp(ft, lib, count));
+// 	free(ft);
+// 	free(lib);
 // }
