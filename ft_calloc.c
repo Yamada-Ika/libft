@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:04 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 11:35:01 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 13:54:55 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	int		*allocatedMemory;
-	// void	*allocatedMemoryPointTo;
+	void	*alloc_mem;
 
-	// allocatedMemory = (int *)malloc(size * count);
-	allocatedMemory = malloc(size * count);
-	if (allocatedMemory == NULL)
+	if (count == 0 || size == 0)
+	{
+		alloc_mem = malloc(1);
+		if (alloc_mem == NULL)
+			return (NULL);
+		ft_bzero(alloc_mem, 1);
+	}
+	alloc_mem = malloc(size * count);
+	if (alloc_mem == NULL)
 		return (NULL);
-	// allocatedMemoryPointTo = (void *)allocatedMemory;
-	ft_bzero(allocatedMemory, count);
-	// while (count-- > 0)
-	// 	*(allocatedMemory++) = 0;
-	// return (allocatedMemoryPointTo);
-	return (allocatedMemory);
+	ft_bzero(alloc_mem, count);
+	return (alloc_mem);
 }
 
 // test code
