@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 17:46:28 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/11 17:48:35 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	**ft_split(char const *s, char c)
 		}
 		s++;
 	}
-	*strArray = NULL;
+	// *strArray = NULL;
 	return (strArrayPointTo);
 }
 
@@ -125,7 +125,7 @@ static char	**allocMem4StrArray(char const *s, char c)
 		if (strArray[i] == NULL)
 			return (NULL);
 	}
-	// strArray[i] = NULL;
+	strArray[i] = NULL;
 	free(eachWordCounts);
 	return (strArray);
 }
