@@ -35,7 +35,13 @@ SRCS = ft_isalpha.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c
-BONUSSRCS = ft_lstadd_front.c \
+BONUSSRCS = ft_lstadd_back.c \
+			ft_lstadd_front.c \
+			ft_lstclear.c \
+			ft_lstdelone.c \
+			ft_lstiter.c \
+			ft_lstlast.c \
+			ft_lstmap.c \
 			ft_lstnew.c \
 			ft_lstsize.c
 BONUSOBJS = $(BONUSSRCS:.c=.o)
@@ -154,8 +160,26 @@ ft_putendl_fd.o: ft_putendl_fd.c
 ft_putnbr_fd.o: ft_putnbr_fd.c
 	$(CC) $(CFLAGS) ft_putnbr_fd.c -o ft_putnbr_fd.o
 
+ft_lstadd_back.o: ft_lstadd_back.c
+	$(CC) $(CFLAGS) ft_lstadd_back.c -o ft_lstadd_back.o
+
 ft_lstadd_front.o: ft_lstadd_front.c
 	$(CC) $(CFLAGS) ft_lstadd_front.c -o ft_lstadd_front.o
+
+# ft_lstclear.o: ft_lstclear.c
+# 	$(CC) $(CFLAGS) ft_lstclear.c -o ft_lstclear.o
+
+ft_lstdelone.o: ft_lstdelone.c
+	$(CC) $(CFLAGS) ft_lstdelone.c -o ft_lstdelone.o
+
+ft_lstiter.o: ft_lstiter.c
+	$(CC) $(CFLAGS) ft_lstiter.c -o ft_lstiter.o
+
+ft_lstlast.o: ft_lstlast.c
+	$(CC) $(CFLAGS) ft_lstlast.c -o ft_lstlast.o
+
+# ft_lstmap.o: ft_lstmap.c
+# 	$(CC) $(CFLAGS) ft_lstmap.c -o ft_lstmap.o
 
 ft_lstnew.o: ft_lstnew.c
 	$(CC) $(CFLAGS) ft_lstnew.c -o ft_lstnew.o
