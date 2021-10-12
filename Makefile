@@ -35,7 +35,17 @@ SRCS = ft_isalpha.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c
+BONUSSRCS = ft_lstadd_front.c \
+			ft_lstnew.c \
+			ft_lstsize.c
+BONUSOBJS = $(BONUSSRCS:.c=.o)
 OBJS = $(SRCS:.c=.o)
+
+# ifdef WITH_BONUS
+OBJS += $(BONUSOBJS)
+# endif
+# bonus:
+# 	@make WITH_BONUS=1
 
 all: $(NAME)
 
@@ -144,6 +154,15 @@ ft_putendl_fd.o: ft_putendl_fd.c
 ft_putnbr_fd.o: ft_putnbr_fd.c
 	$(CC) $(CFLAGS) ft_putnbr_fd.c -o ft_putnbr_fd.o
 
+ft_lstadd_front.o: ft_lstadd_front.c
+	$(CC) $(CFLAGS) ft_lstadd_front.c -o ft_lstadd_front.o
+
+ft_lstnew.o: ft_lstnew.c
+	$(CC) $(CFLAGS) ft_lstnew.c -o ft_lstnew.o
+
+ft_lstsize.o: ft_lstsize.c
+	$(CC) $(CFLAGS) ft_lstsize.c -o ft_lstsize.o
+
 clean:
 	rm -rf $(OBJS)
 
@@ -152,4 +171,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re $(NAME)
+.PHONY: all clean fclean re $(NAME) bonus
