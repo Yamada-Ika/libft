@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:33:49 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 15:49:12 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/12 16:48:50 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ t_list	*ft_lstnew(void	*content)
 {
 	t_list	*list;
 
-	if (content == NULL)
-		return (NULL);
 	list = (t_list *)malloc(sizeof(t_list));
 	if (list == NULL)
 		return (NULL);
