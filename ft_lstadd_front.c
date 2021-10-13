@@ -6,16 +6,16 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:49:55 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 21:36:45 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/13 00:25:34 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst != NULL)
-		(*lst)->next = new;
+	*lst = new;
 }
 
 // < test code >
@@ -26,13 +26,12 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 // 	t_list *new;
 
 // 	old = ft_lstnew("hello");
-// 	printf("%s %p\n", (char *)old->content, old->next); // hello 0x0
 // 	new = ft_lstnew("good evening");
-// 	printf("%s %p\n", (char *)new->content, new->next); // good evening 0x0
-// 	ft_lstadd_front(&old->next, new);
-// 	printf("%s %p\n", (char *)old->content, old->next); // hello 0x...
-// 	ft_lstadd_front(NULL, new);
-// 	printf("%s %p\n", (char *)old->content, old->next); // hello 0x...
+// 	// ft_lstadd_front(&old, new);
+// 	// printf("%s %p\n", (char *)old->content, old->next); // hello 0x...
+// 	old = NULL;
+// 	ft_lstadd_front(&old, new);
+// 	// printf("%s %p\n", (char *)old->content, old->next); // hello 0x...
 // 	free(old);
 // 	free(new);
 // }

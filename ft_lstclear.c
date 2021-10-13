@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:31:44 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 21:04:36 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/13 09:50:14 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 
 void ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*next_element;
+	t_list	*prev_lst;
 
-	next_element = *lst;
-	while ((*del) != NULL && next_element != NULL)
+	while ((*del) != NULL && *lst != NULL)
 	{
-		(*del)(next_element->content);
-		next_element = (*lst)->next;
-		(*lst)->next = NULL;
-		free(*lst);
+		(*del)((*lst)->content);
+		prev_lst = *lst;
+		*lst = (*lst)->next;
+		free(prev_lst);
+		prev_lst = NULL;
 	}
 }
+
+// test code
+// #include <stdio.h>
+
+// int main(void) {
+// 	t_list *l = ft_lstnew(strdup("hello"));
+// 	l->next = ft_lstnew(strdup("world"));
+// 	ft_lstclear(&l, free);
+// }
