@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:29 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 19:07:30 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/13 14:52:27 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,35 +28,6 @@ static size_t	get_num_of_digits(int n)
 	}
 	return (digit_count);
 }
-
-// static char	*itostr(int n, char *str, size_t str_len, size_t *i)
-// {
-// 	size_t	flg_int_min;
-
-// 	flg_int_min = 0;
-// 	if (n < 0)
-// 	{
-// 		if (n == INT_MIN)
-// 		{
-// 			flg_int_min = 1;
-// 			n++;
-// 		}
-// 		n *= -1;
-// 		str[0] = '-';
-// 	}
-// 	while (*i < str_len)
-// 	{
-// 		str[str_len - (*i + 1)] = n % 10 + '0';
-// 		n /= 10;
-// 		if (n == 0)
-// 			break ;
-// 		*i += 1;
-// 	}
-// 	if (flg_int_min == 1)
-// 		str[str_len - 1] += 1;
-// 	str[str_len] = '\0';
-// 	return (str);
-// }
 
 static void	itostr(int n, char *str, size_t len, size_t offset)
 {
