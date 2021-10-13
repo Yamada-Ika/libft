@@ -6,11 +6,12 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/13 22:11:01 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/14 00:05:09 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static char	**alloc_helper(char const *s, char c, size_t split_num, size_t len)
 {
@@ -19,12 +20,20 @@ static char	**alloc_helper(char const *s, char c, size_t split_num, size_t len)
 	char		**split_strs;
 
 	if (*s == '\0')
-		return ((char **)malloc(sizeof(char *) * (split_num + 1)));
+	{
+		split_strs = (char **)malloc(sizeof(char *) * (split_num + 1));
+		split_strs[split_num] = NULL;
+		return (split_strs);
+	}
 	while (*s == c && *s != '\0')
 	{
 		s++;
 		if (*s == '\0')
-			return ((char **)malloc(sizeof(char *) * (split_num + 1)));
+		{
+			split_strs = (char **)malloc(sizeof(char *) * (split_num + 1));
+			split_strs[split_num] = NULL;
+			return (split_strs);
+		}
 	}
 	s_ptr = s;
 	while (*s != c && *s != '\0')
@@ -67,7 +76,7 @@ char	**ft_split(char const *s, char c)
 	// ret = ft_split("aa,bb,cc", ',');
 	// while (ret[i] != NULL)
 	// {
-	// 	printf("ret[%d] = %s\n", i, ret[i]);
+		// printf("ret[%d] = %s\n", i, ret[i]);
 	// 	i++;
 	// }
 	// free(ret);
