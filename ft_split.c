@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/13 21:36:59 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/13 21:39:00 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ static char	**alloc_helper(char const *s, char c, size_t split_num, size_t word_
 	char	*split_str;
 	char	**split_strs;
 
-	printf("*s = %02x\n", *s);
+	// printf("*s = %02x\n", *s);
 	if (*s == '\0')
 		return ((char **)malloc(sizeof(char *) * (split_num + 1)));
 	while (*s == c && *s != '\0')
@@ -151,7 +151,7 @@ static char	**alloc_helper(char const *s, char c, size_t split_num, size_t word_
 		s++;
 		if (*s == '\0')
 		{
-			printf("*s = %02x\n", *s);
+			// printf("*s = %02x\n", *s);
 			return ((char **)malloc(sizeof(char *) * (split_num + 1)));
 		}
 	}
