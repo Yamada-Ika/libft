@@ -6,18 +6,17 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/13 22:02:03 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/13 22:11:01 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static char	**alloc_helper(char const *s, char c, size_t split_num, size_t word_len)
+static char	**alloc_helper(char const *s, char c, size_t split_num, size_t len)
 {
 	const char	*s_ptr;
-	char	*split_str;
-	char	**split_strs;
+	char		*split_str;
+	char		**split_strs;
 
 	if (*s == '\0')
 		return ((char **)malloc(sizeof(char *) * (split_num + 1)));
@@ -30,16 +29,14 @@ static char	**alloc_helper(char const *s, char c, size_t split_num, size_t word_
 	s_ptr = s;
 	while (*s != c && *s != '\0')
 	{
-		word_len++;
+		len++;
 		s++;
 	}
 	split_num++;
-	split_str = ft_substr(s_ptr, 0, word_len);
-	// printf("split_str %s, word_len %zu\n", split_str, word_len);
+	split_str = ft_substr(s_ptr, 0, len);
 	if (split_str == NULL)
 		return (NULL);
 	split_strs = alloc_helper(s, c, split_num, 0);
-	// printf("split_num %zu\n", split_num);
 	if (split_strs == NULL)
 		free(split_str);
 	else
@@ -120,7 +117,6 @@ char	**ft_split(char const *s, char c)
 // 			printf("%02x ", ret[i][j]);
 // 		}
 // 		putchar('\n');
-// 		printf("strcmp(expected[%d], ret[%d]) : %d\n", i, i, strcmp(expected[i], ret[i]));
 // 		i++;
 // 	}
 // 	free(ret);
