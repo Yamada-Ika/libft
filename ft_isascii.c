@@ -6,9 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:12 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:01:16 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 00:59:44 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isascii(int c)
 {
