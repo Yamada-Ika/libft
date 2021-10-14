@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 16:57:27 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/14 17:17:50 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 01:07:41 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ t_list	*ft_lstlast(t_list *lst)
 // 	lst1->next = lst2;
 // 	lst2->next = lst3;
 // 	ret = ft_lstlast(lst0);
-// 	printf("ret->content : %s, ret->next : %p\n", (char *)ret->content, ret->next);
 // 	free(lst0);
 // 	free(lst1);
 // 	free(lst2);
