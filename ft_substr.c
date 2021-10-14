@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 02:35:03 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/13 22:00:22 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/14 10:15:33 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substr;
 	size_t	s_len;
 
+	if (s == NULL)
+		return (NULL);
+	printf("len + 1(malloc size) : %zu\n", len + 1);
 	substr = (char *)ft_calloc(len + 1, sizeof(char));
-	if (substr == NULL || s == NULL)
+	if (substr == NULL)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (s_len == 0 || s_len <= start || len == 0)
