@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:49:55 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/14 15:56:02 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/14 16:40:00 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*tmp_lst_next;
-
 	if (lst == NULL || new == NULL)
 		return ;
 	else
 	{
-		printf("*lst : %p\n", *lst);
 		new->next = *lst;
-		printf("new->content : %p\n", new->next);
 		*lst = new;
 	}
 }
@@ -32,16 +28,18 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 // #include <stdio.h>
 
 // int main(void) {
-// 	t_list *old;
-// 	t_list *new;
+// 	t_list * l =  NULL;
+// 	ft_lstadd_front(&l, ft_lstnew((void*)1));
+// 	// /* 1 */ check(l->content == (void*)1);
+// 	// /* 2 */ check(l->next == 0);
+// 	printf("l->content : %p\n", l->content);
+// 	printf("l->next    : %p\n", l->next);
 
-// 	old = ft_lstnew("hello");
-// 	new = ft_lstnew("good evening");
-// 	// ft_lstadd_front(&old, new);
-// 	// printf("%s %p\n", (char *)old->content, old->next); // hello 0x...
-// 	old = NULL;
-// 	ft_lstadd_front(&old, new);
-// 	// printf("%s %p\n", (char *)old->content, old->next); // hello 0x...
-// 	free(old);
-// 	free(new);
+// 	ft_lstadd_front(&l, ft_lstnew((void*)2));
+// 	// /* 3 */ check(l->content == (void*)2);
+// 	// /* 4 */ check(l->next->content == (void*)1);
+// 	// /* 5 */ check(l->next->next == 0); 
+// 	printf("l->content       : %p\n", l->content);
+// 	printf("l->next->content : %p\n", l->next->content);
+// 	printf("l->next->next    : %p\n", l->next->next);
 // }
