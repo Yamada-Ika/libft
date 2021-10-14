@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/14 12:14:27 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 00:24:03 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,21 @@ static char	**alloc_helper(char const *s, char c, size_t split_num, size_t len)
 	char		*split_str;
 	char		**split_strs;
 
+	while (*s == c && *s != '\0')
+	{
+		s++;
+		// if (*s == '\0')
+		// {
+		// 	split_strs = (char **)malloc(sizeof(char *) * (split_num + 1));
+		// 	split_strs[split_num] = NULL;
+		// 	return (split_strs);
+		// }
+	}
 	if (*s == '\0')
 	{
 		split_strs = (char **)malloc(sizeof(char *) * (split_num + 1));
 		split_strs[split_num] = NULL;
 		return (split_strs);
-	}
-	while (*s == c && *s != '\0')
-	{
-		s++;
-		if (*s == '\0')
-		{
-			split_strs = (char **)malloc(sizeof(char *) * (split_num + 1));
-			split_strs[split_num] = NULL;
-			return (split_strs);
-		}
 	}
 	s_ptr = s;
 	while (*s != c && *s != '\0')
