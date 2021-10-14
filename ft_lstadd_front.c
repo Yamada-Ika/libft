@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:49:55 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/14 15:42:36 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/14 15:45:50 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	t_list	*tmp_lst_next;
 
-	if (lst == NULL)
+	if (lst == NULL || new == NULL)
 		return ;
-	if (*lst == NULL)
-	{
-		*lst = new;
-	}
 	else
 	{
 		new->next = *lst;
