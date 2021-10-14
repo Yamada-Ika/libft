@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 14:50:46 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/14 09:37:55 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = src[i];
 		i++;
 	}
-	if (i > 0 || (src_len == 0 && dstsize > 0))
+	dst[i] = '\0';
+	if (i > 0 || (src_len == 0 && dstsize > 0) || dstsize == 1)
 		dst[i] = '\0';
 	return (src_len);
 }
