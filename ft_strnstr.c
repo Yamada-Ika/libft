@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:08:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/15 00:59:16 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 00:23:29 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	needle_len = ft_strlen(needle);
 	if (needle_len == 0)
 		return ((char *)haystack);
-	while (*haystack != '\0' && len > 0 && len >= needle_len)
+	while (*haystack != '\0' && len >= needle_len)
 	{
 		if (ft_strncmp(haystack, needle, needle_len) == 0)
 			return ((char *)haystack);

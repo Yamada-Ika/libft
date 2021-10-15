@@ -52,7 +52,7 @@ ifdef WITH_BONUS
 OBJS += $(BONUSOBJS)
 endif
 
-all: $(NAME) bonus
+all: $(NAME)
 
 bonus:
 	make WITH_BONUS=1
