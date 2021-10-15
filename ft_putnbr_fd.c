@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 21:35:45 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:09:06 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 18:59:45 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ static void	ft_putnbr_fd_helper(int n, int fd, int offset)
 		n *= -1;
 	}
 	if (0 <= n && n <= 9)
-	{
 		ft_putchar_fd(n + '0', fd);
-	}
 	else
 	{
 		ft_putnbr_fd_helper(n / 10, fd, offset);

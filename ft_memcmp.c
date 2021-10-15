@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:43 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:07:28 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 18:58:45 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,12 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	diff;
-
-	diff = 0;
 	while (n-- > 0)
 	{
 		if (*(unsigned char *)s1++ != *(unsigned char *)s2++)
-		{
-			diff = *(unsigned char *)--s1 - *(unsigned char *)--s2;
-			break ;
-		}
+			return (*(unsigned char *)--s1 - *(unsigned char *)--s2);
 	}
-	return (diff);
+	return (0);
 }
 
 // -- test code --

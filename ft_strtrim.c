@@ -6,14 +6,14 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 00:47:20 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 21:59:04 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static size_t	forward_trim_strlen(char const *s, char const *set)
+static size_t	forward_trim_count(char const *s, char const *set)
 {
 	size_t	trim_count;
 
@@ -21,16 +21,15 @@ static size_t	forward_trim_strlen(char const *s, char const *set)
 	while (1)
 	{
 		if (ft_strchr(set, (int)*s) == NULL)
-			break ;
+			return (trim_count);
 		trim_count++;
 		if (*s == '\0')
-			break ;
+			return (trim_count);
 		s++;
 	}
-	return (trim_count);
 }
 
-static size_t	backward_trim_strlen(char const *s, char const *set)
+static size_t	backward_trim_count(char const *s, char const *set)
 {
 	size_t	trim_count;
 	size_t	s_len;
@@ -52,7 +51,7 @@ static size_t	backward_trim_strlen(char const *s, char const *set)
 
 char	*ft_strtrim(char const *s, char const *set)
 {
-	char	*trimmed_str;
+	char	*trim_str;
 	size_t	trim_strlen;
 	size_t	forward_trim_len;
 	size_t	backward_trim_len;
@@ -61,17 +60,17 @@ char	*ft_strtrim(char const *s, char const *set)
 	if (s == NULL || set == NULL)
 		return (NULL);
 	s_len = ft_strlen(s);
-	forward_trim_len = forward_trim_strlen(s, set);
-	backward_trim_len = backward_trim_strlen(s, set);
+	forward_trim_len = forward_trim_count(s, set);
+	backward_trim_len = backward_trim_count(s, set);
 	trim_strlen = s_len - (forward_trim_len + backward_trim_len);
 	if (forward_trim_len + backward_trim_len >= s_len)
 		trim_strlen = 0;
-	trimmed_str = (char *)malloc(sizeof(char) * (trim_strlen + 1));
-	if (trimmed_str == NULL)
+	trim_str = (char *)malloc(sizeof(char) * (trim_strlen + 1));
+	if (trim_str == NULL)
 		return (NULL);
-	ft_bzero((void *)trimmed_str, trim_strlen + 1);
-	ft_memcpy(trimmed_str, s + forward_trim_len, trim_strlen);
-	return (trimmed_str);
+	ft_memcpy(trim_str, s + forward_trim_len, trim_strlen);
+	trim_str[trim_strlen] = '\0';
+	return (trim_str);
 }
 
 // -- test code --

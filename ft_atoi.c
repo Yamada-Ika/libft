@@ -6,61 +6,42 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 16:37:22 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 21:32:26 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	isspace_helper(int c)
+static char	*trime_str(const char *str, int *sign)
 {
-	if (('\t' <= c && c <= '\r') || c == ' ')
-		return (1);
-	else
-		return (0);
-}
-
-static void	*trime_str(const char *str, int *sign)
-{
-	while (!ft_isdigit(*str) && *str != '+' && *str != '-')
-	{
-		if (!isspace_helper(*str))
-			return (NULL);
-		str++;
-	}	
-	*sign = 1;
 	if (*str == '-' || *str == '+')
 	{
-		if (*str == '-')
-			*sign = -1;
-		str++;
+		*sign = (*str - 44) * (-1);
+		return ((char *)++str);
 	}
-	return ((void *)str);
+	if (ft_isdigit(*str))
+		return ((char *)str);
+	if (!(('\t' <= *str && *str <= '\r') || *str == ' '))
+		return (NULL);
+	return (trime_str(++str, sign));
 }
 
-static long	atoi_helper(const char *str, long num, int sign)
+static long	ft_atoi_helper(const char *str, long num, int sign)
 {
-	if (sign == 1)
+	if (!ft_isdigit(*str))
+		return num;
+	if ((LONG_MIN + (*str - '0')) / 10 < num
+		&& num < (LONG_MAX - (*str - '0')) / 10)
 	{
-		if (num < (LONG_MAX - (*str - '0')) / 10)
-		{
-			num *= 10;
-			num += *str - '0';
-		}
-		else
-			num = LONG_MAX;
+		num *= 10;
+		num += (*str - '0') * sign;
 	}
-	if (sign == -1)
-	{
-		if ((LONG_MIN + (*str - '0')) / 10 < num)
-		{
-			num *= 10;
-			num -= *str - '0';
-		}
+	else
+		if (sign == 1)
+			return (LONG_MAX);
 		else
-			num = LONG_MIN;
-	}
-	return (num);
+			return (LONG_MIN);
+	return (ft_atoi_helper(++str, num, sign));
 }
 
 int	ft_atoi(const char *str)
@@ -69,16 +50,11 @@ int	ft_atoi(const char *str)
 	int		sign;
 
 	num_in_str = 0;
+	sign = 1;
 	str = (const char *)trime_str(str, &sign);
 	if (str == NULL)
 		return (num_in_str);
-	while (ft_isdigit(*str))
-	{
-		num_in_str = atoi_helper(str, num_in_str, sign);
-		if (num_in_str == LONG_MAX || num_in_str == LONG_MIN)
-			break ;
-		str++;
-	}
+	num_in_str = ft_atoi_helper(str, num_in_str, sign);
 	return ((int)num_in_str);
 }
 

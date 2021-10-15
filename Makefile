@@ -1,7 +1,8 @@
-CC	= gcc
-CFLAGS	= -Wall -Wextra -Werror -c
-NAME = libft.a
-SRCS = ft_isalpha.c \
+CC	:= gcc
+CFLAGS	:= -Wall -Wextra -Werror -c
+NAME := libft.a
+HEADERFILE := libft.h
+SRCS := ft_isalpha.c \
 	   ft_isdigit.c \
 	   ft_isalnum.c \
 	   ft_isascii.c \
@@ -35,7 +36,7 @@ SRCS = ft_isalpha.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c
-BONUSSRCS = ft_lstadd_back.c \
+BONUSSRCS := ft_lstadd_back.c \
 			ft_lstadd_front.c \
 			ft_lstclear.c \
 			ft_lstdelone.c \
@@ -44,22 +45,22 @@ BONUSSRCS = ft_lstadd_back.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
 			ft_lstsize.c
-BONUSOBJS = $(BONUSSRCS:.c=.o)
-OBJS = $(SRCS:.c=.o)
+BONUSOBJS := $(BONUSSRCS:.c=.o)
+OBJS := $(SRCS:.c=.o)
 
 # ifdef WITH_BONUS
 OBJS += $(BONUSOBJS)
 # endif
 # bonus:
-# 	@make WITH_BONUS=1
+# 	# make WITH_BONUS=1
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) $^ -o $@
+%.o: %.c $(HEADERFILE)
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
 	rm -rf $(OBJS)
