@@ -6,14 +6,14 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/15 01:00:41 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 10:50:30 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char	**alloc_helper(char const *s, char c, size_t split_num, size_t len)
+static char	**alloc_helper(char const *s, char c, size_t split_num)
 {
 	const char	*s_ptr;
 	char		*split_str;
@@ -34,7 +34,7 @@ static char	**alloc_helper(char const *s, char c, size_t split_num, size_t len)
 	split_str = ft_substr(s_ptr, 0, s - s_ptr);
 	if (split_str == NULL)
 		return (NULL);
-	split_strs = alloc_helper(s, c, split_num, 0);
+	split_strs = alloc_helper(s, c, split_num);
 	if (split_strs == NULL)
 		split_str = NULL;
 	else
@@ -52,7 +52,7 @@ char	**ft_split(char const *s, char c)
 		ret[0] = NULL;
 		return (ret);
 	}
-	return (alloc_helper(s, c, 0, 0));
+	return (alloc_helper(s, c, 0));
 }
 
 // // test
