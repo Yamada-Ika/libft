@@ -48,13 +48,14 @@ BONUSSRCS := ft_lstadd_back.c \
 BONUSOBJS := $(BONUSSRCS:.c=.o)
 OBJS := $(SRCS:.c=.o)
 
-# ifdef WITH_BONUS
+ifdef WITH_BONUS
 OBJS += $(BONUSOBJS)
-# endif
-# bonus:
-# 	# make WITH_BONUS=1
+endif
 
 all: $(NAME)
+
+bonus:
+	make WITH_BONUS=1
 
 $(NAME): $(OBJS)
 	ar rcs $@ $^
@@ -63,7 +64,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(BONUSOBJS)
 
 fclean: clean
 	rm -rf $(NAME)

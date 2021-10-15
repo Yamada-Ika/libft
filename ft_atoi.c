@@ -6,11 +6,19 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/15 21:32:26 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 23:26:27 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static	int	is_space(int c)
+{
+	if (('\t' <= c && c <= '\r') || c == ' ')
+		return (1);
+	else
+		return (0);
+}
 
 static char	*trime_str(const char *str, int *sign)
 {
@@ -21,7 +29,7 @@ static char	*trime_str(const char *str, int *sign)
 	}
 	if (ft_isdigit(*str))
 		return ((char *)str);
-	if (!(('\t' <= *str && *str <= '\r') || *str == ' '))
+	if (!is_space(*str))
 		return (NULL);
 	return (trime_str(++str, sign));
 }
