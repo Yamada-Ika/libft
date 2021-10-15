@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/15 23:26:27 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/15 23:56:41 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	*trime_str(const char *str, int *sign)
 static long	ft_atoi_helper(const char *str, long num, int sign)
 {
 	if (!ft_isdigit(*str))
-		return num;
+		return (num);
 	if ((LONG_MIN + (*str - '0')) / 10 < num
 		&& num < (LONG_MAX - (*str - '0')) / 10)
 	{
@@ -45,10 +45,12 @@ static long	ft_atoi_helper(const char *str, long num, int sign)
 		num += (*str - '0') * sign;
 	}
 	else
+	{
 		if (sign == 1)
 			return (LONG_MAX);
 		else
 			return (LONG_MIN);
+	}
 	return (ft_atoi_helper(++str, num, sign));
 }
 
