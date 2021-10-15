@@ -6,11 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:45:58 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/10 23:45:59 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 00:17:19 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

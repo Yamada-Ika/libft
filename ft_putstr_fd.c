@@ -6,12 +6,11 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:43 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 13:56:14 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 00:18:31 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	ft_putstr_fd(char const *c, int fd)
 {
