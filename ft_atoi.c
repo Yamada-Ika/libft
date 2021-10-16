@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 00:17:01 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 17:11:19 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,52 +20,29 @@ static	int	is_space(int c)
 		return (0);
 }
 
-static char	*trime_str(const char *str, int *sign)
-{
-	if (*str == '-' || *str == '+')
-	{
-		*sign = (*str - 44) * (-1);
-		return ((char *)++str);
-	}
-	if (ft_isdigit(*str))
-		return ((char *)str);
-	if (!is_space(*str))
-		return (NULL);
-	return (trime_str(++str, sign));
-}
-
-static long	ft_atoi_helper(const char *str, long num, int sign)
-{
-	if (!ft_isdigit(*str))
-		return (num);
-	if ((LONG_MIN + (*str - '0')) / 10 < num
-		&& num < (LONG_MAX - (*str - '0')) / 10)
-	{
-		num *= 10;
-		num += (*str - '0') * sign;
-	}
-	else
-	{
-		if (sign == 1)
-			return (LONG_MAX);
-		else
-			return (LONG_MIN);
-	}
-	return (ft_atoi_helper(++str, num, sign));
-}
-
 int	ft_atoi(const char *str)
 {
-	long	num_in_str;
+	long	num;
 	int		sign;
 
-	num_in_str = 0;
 	sign = 1;
-	str = (const char *)trime_str(str, &sign);
-	if (str == NULL)
-		return (num_in_str);
-	num_in_str = ft_atoi_helper(str, num_in_str, sign);
-	return ((int)num_in_str);
+	num = 0;
+	while (is_space(*str))
+		str++;
+	if (*str == '-' || *str == '+')
+		sign = 44 - *(str++);
+	while (ft_isdigit(*str))
+	{
+		if ((LONG_MIN + (*str - '0')) / 10 < num
+			&& num < (LONG_MAX - (*str - '0')) / 10)
+			num = num * 10 + (*str - '0') * sign;
+		else if (sign == 1)
+			return ((int)LONG_MAX);
+		else
+			return ((int)LONG_MIN);
+		str++;
+	}
+	return ((int)num);
 }
 
 // -- test code --
