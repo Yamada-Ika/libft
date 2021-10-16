@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:40 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 21:56:06 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 22:12:26 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (uc_s[i] == (unsigned char)c)
-			return (s + i);
+			return ((void *)s + i);
 		i++;
 	}
 	return (NULL);

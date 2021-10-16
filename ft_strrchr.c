@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:34 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 22:03:27 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 22:11:57 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (1)
 	{
 		if (s[s_len - i] == (const char)c)
-			return (s + s_len - i);
+			return ((char *)s + s_len - i);
 		if (s_len - i == 0)
 			return (NULL);
 		i++;
