@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:31:44 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 15:59:47 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 18:37:15 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (lst == NULL || *lst == NULL || (*del) == NULL)
 		return ;
 	next_lst = *lst;
-	while (*next_lst != NULL)
+	while (next_lst != NULL)
 	{
 		prev_lst = next_lst;
 		next_lst = next_lst->next;
