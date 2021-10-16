@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:49:55 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 00:18:02 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 13:52:24 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*new_ptr;
-
 	if (lst == NULL || new == NULL)
 		return ;
 	else
 	{
-		new_ptr = new;
 		ft_lstadd_back(&new, *lst);
-		*lst = new_ptr;
+		*lst = new;
 	}
 }
 
