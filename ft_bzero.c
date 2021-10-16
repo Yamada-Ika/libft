@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:45:58 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 00:17:19 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 21:32:06 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 void	ft_bzero(void *s, size_t n)
 {
+	size_t	i;
+
 	if (n == 0)
 		return ;
-	while (n-- > 0)
-		*(char *)(s++) = '\0';
+	i = 0;
+	while (i < n)
+	{
+		s[i] = 0;
+		i++;
+	}
 }
 
 // -- test code --

@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:33 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/14 08:53:13 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 21:53:59 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	void	*ptr;
+	size_t			i;
+	unsigned char	*uc_b;
 
-	ptr = b;
-	while (len-- > 0)
-		*(unsigned char *)(b++) = (unsigned char)c;
-	return (ptr);
+	i = 0;
+	uc_b = (unsigned char *)b;
+	while (i < len)
+	{
+		uc_b[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }
 
 // -- test code --

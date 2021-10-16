@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:34 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/15 18:28:16 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/16 22:03:27 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t	s_len;
+	size_t	i;
 
 	s_len = ft_strlen(s);
-	s = s + s_len;
-	while (s_len-- + 1 > 0)
+	i = 0;
+	while (1)
 	{
-		if (*s == (const char)c)
-			return ((char *)s);
-		s--;
+		if (s[s_len - i] == (const char)c)
+			return (s + s_len - i);
+		if (s_len - i == 0)
+			return (NULL);
+		i++;
 	}
-	return (NULL);
 }
 
 // -- test code --
