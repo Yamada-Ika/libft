@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 23:49:44 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/11 00:12:30 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/17 12:51:41 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int	ft_toupper(int c)
 {
 	if ('a' <= c && c <= 'z')
-		return (c - ('a' - 'A'));
-	else
-		return (c);
+		return (c - 'a' + 'A');
+	return (c);
 }
 
 // -- test code --
