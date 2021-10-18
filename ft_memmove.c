@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 17:33:06 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 21:51:13 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/18 14:17:13 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char		*c_dst;
 	const char	*c_src;
 
-	if (dst == src || len == 0)
-		return (dst);
 	c_dst = (char *)dst;
 	c_src = (const char *)src;
 	i = 0;

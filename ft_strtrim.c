@@ -6,69 +6,28 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 17:46:46 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/18 12:58:47 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static size_t	forward_trim_count(char const *s, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	trim_count;
+	char const	*head;
+	char const	*tail;
 
-	trim_count = 0;
-	while (1)
-	{
-		if (ft_strchr(set, (int)*s) == NULL)
-			return (trim_count);
-		trim_count++;
-		if (*s == '\0')
-			return (trim_count);
-		s++;
-	}
-}
-
-static size_t	backward_trim_count(char const *s, char const *set)
-{
-	size_t	trim_count;
-	size_t	s_len;
-
-	trim_count = 0;
-	s_len = ft_strlen(s);
-	if (s_len == 0)
-		return (trim_count);
-	s += s_len - 1;
-	while (s_len-- > 0)
-	{
-		if (ft_strchr(set, (int)*s) == NULL)
-			return (trim_count);
-		trim_count++;
-		s--;
-	}
-	return (trim_count);
-}
-
-char	*ft_strtrim(char const *s, char const *set)
-{
-	char	*trim_str;
-	size_t	trim_strlen;
-	size_t	forward_trim_len;
-	size_t	backward_trim_len;
-	size_t	s_len;
-
-	if (s == NULL || set == NULL)
+	if (s1 == NULL || set == NULL)
 		return (NULL);
-	s_len = ft_strlen(s);
-	forward_trim_len = forward_trim_count(s, set);
-	backward_trim_len = backward_trim_count(s, set);
-	trim_strlen = s_len - (forward_trim_len + backward_trim_len);
-	if (forward_trim_len + backward_trim_len > s_len)
-		trim_strlen = 0;
-	trim_str = (char *)malloc(sizeof(char) * (trim_strlen + 1));
-	if (trim_str == NULL)
-		return (NULL);
-	ft_strlcpy(trim_str, s + forward_trim_len, trim_strlen + 1);
-	return (trim_str);
+	head = s1;
+	while (ft_strchr(set, (int)*head))
+		head++;
+	tail = s1 + ft_strlen(s1);
+	while (ft_strchr(set, (int)*tail) && head <= tail)
+		tail--;
+	printf("head : %p tail : %p\n", head, tail);
+	return (ft_substr(head, 0, tail - head + 1));
 }
 
 // -- test code --

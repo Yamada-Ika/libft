@@ -6,37 +6,34 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 21:35:45 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/15 18:59:45 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/18 11:55:12 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_putnbr_fd_helper(int n, int fd, int offset)
+void	ft_putnbr_fd(int n, int fd)
 {
+	int	isINT_MIN;
+
+	isINT_MIN = 0;
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
+		if (n == INT_MIN)
+		{
+			isINT_MIN = 1;
+			n++;
+		}
 		n *= -1;
 	}
 	if (0 <= n && n <= 9)
 		ft_putchar_fd(n + '0', fd);
 	else
 	{
-		ft_putnbr_fd_helper(n / 10, fd, offset);
-		if (n == -1 * (INT_MIN + 1))
-			ft_putchar_fd(n % 10 + offset + '0', fd);
-		else
-			ft_putchar_fd(n % 10 + '0', fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + isINT_MIN + '0', fd);
 	}
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == INT_MIN)
-		ft_putnbr_fd_helper(++n, fd, 1);
-	else
-		ft_putnbr_fd_helper(n, fd, 0);
 }
 
 // -- test code --

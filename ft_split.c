@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 11:39:21 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/18 12:25:42 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static char	**alloc_helper(char const *s, char c, size_t split_num)
 		return (NULL);
 	split_strs = alloc_helper(s, c, split_num);
 	if (split_strs == NULL)
-		split_str = NULL;
+		free(split_str);
 	else
 		split_strs[split_num - 1] = split_str;
 	return (split_strs);
