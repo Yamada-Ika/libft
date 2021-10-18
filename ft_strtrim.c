@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/18 16:49:02 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/18 17:08:21 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	tail = s1 + ft_strlen(s1);
 	while (tail < head && ft_strchr(set, (int)*tail))
 		tail--;
-	return (ft_substr(head, 0, tail - head));
+	return (ft_substr(head, 0, tail - head + 1));
 }
 
 // -- test code --
