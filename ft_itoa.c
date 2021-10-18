@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:29 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/18 15:47:48 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/18 15:50:26 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ static char	*ft_itoa_helper(long long n, int digi_count, int is_nega)
 
 char	*ft_itoa(int n)
 {
-	int	is_negative;
-	int	digits_count;
+	int			is_negative;
+	int			digits_count;
 	long long	ll_n;
 
 	if (n == 0)
