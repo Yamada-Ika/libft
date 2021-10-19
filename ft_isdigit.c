@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:08:53 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 00:17:45 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/18 17:37:59 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	if ('0' <= c && c <= '9')
-		return (1);
-	else
-		return (0);
+	return ('0' <= c && c <= '9');
 }
 
 // -- test code --
