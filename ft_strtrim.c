@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/18 17:34:54 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 10:01:08 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char const	*head;
 	char const	*tail;
-	size_t		trimmed_str_len;
 
 	if (s1 == NULL || set == NULL)
 		return (NULL);
 	head = s1;
 	while (*head != '\0' && ft_strchr(set, (int)*head))
 		head++;
+	if (*head == '\0')
+		return (ft_strdup(""));
 	tail = s1 + ft_strlen(s1) - 1;
 	while (ft_strchr(set, (int)*tail))
 		tail--;
-	if (*head == '\0')
-		trimmed_str_len = 0;
-	else
-		trimmed_str_len = tail - head + 1;
-	return (ft_substr(head, 0, trimmed_str_len));
+	return (ft_substr(head, 0, tail - head + 1));
 }
 
 // -- test code --

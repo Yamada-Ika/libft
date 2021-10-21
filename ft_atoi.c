@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 17:11:19 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/20 05:50:46 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 static	int	is_space(int c)
 {
-	if (('\t' <= c && c <= '\r') || c == ' ')
-		return (1);
-	else
-		return (0);
+	return (('\t' <= c && c <= '\r') || c == ' ');
 }
 
 int	ft_atoi(const char *str)

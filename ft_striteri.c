@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:06 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/12 20:16:20 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 10:34:30 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	unsigned int	i;
 
+	if (s == NULL || (*f) == NULL)
+		return ;
 	i = 0;
-	while (s != NULL && s[i] != '\0')
+	while (s[i] != '\0')
 	{
 		(*f)(i, &s[i]);
 		i++;

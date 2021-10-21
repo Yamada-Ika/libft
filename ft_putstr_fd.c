@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:43 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 00:18:31 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 09:49:47 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,22 @@
 
 void	ft_putstr_fd(char const *c, int fd)
 {
-	size_t	c_len;
+	size_t		c_len;
+	size_t		prev_write_len;
+	char const	*tmp_c;
 
-	if (c != NULL)
+	if (c == NULL)
+		return ;
+	tmp_c = c;
+	c_len = ft_strlen(tmp_c);
+	prev_write_len = c_len % INT_MAX;
+	write(fd, tmp_c, prev_write_len);
+	tmp_c += prev_write_len;
+	c_len /= INT_MAX;
+	while (c_len-- > 0)
 	{
-		c_len = ft_strlen(c);
-		write(fd, c, c_len % INT_MAX);
-		c_len /= INT_MAX;
-		while (c_len-- > 0)
-			write(fd, c, INT_MAX);
+		write(fd, tmp_c, INT_MAX);
+		tmp_c += INT_MAX;
 	}
 }
 
