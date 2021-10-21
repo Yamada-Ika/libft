@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:43 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 18:20:14 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 18:33:34 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *c, int fd)
 {
 	size_t	c_len;
 	size_t	prev_write_len;
-	char 	*tmp_c;
+	char	*tmp_c;
 
 	if (c == NULL)
 		return ;
