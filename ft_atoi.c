@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/20 05:50:46 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 17:02:54 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,7 @@ int	ft_atoi(const char *str)
 
 // -- test code --
 // #include <stdio.h>
-// #include <stdlib.h>
 
 // int main(void){
-	// char str[] = "-92233720368547758089";
-	// char str[] = "92233720368547758079";
-	// char str[] = "-2147483649";
-	// char str[] = "\e06050";
-	// char str[] = "\t 06050";
-// 	char str[] = "+100";
-
-// 	printf("atoi :    %d\n", atoi(str));
-// 	printf("ft_atoi : %d\n", ft_atoi(str));
+// 	printf("%d\n", atoi("100"));
 // }

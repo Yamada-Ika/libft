@@ -6,34 +6,47 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/18 12:25:42 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 18:05:36 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**alloc_helper(char const *s, char c, size_t split_num)
+static char	*ft_shift_splitted_word(char const *s, char c)
+{
+	while (*s != c && *s != '\0')
+		s++;
+	return ((char *)s);
+}
+
+static char	*ft_skip_split_char(char const *s, char c)
+{
+	while (*s == c && *s != '\0')
+		s++;
+	return ((char *)s);
+}
+
+static char	**ft_split_helper(char const *s, char c, size_t split_num)
 {
 	const char	*s_ptr;
 	char		*split_str;
 	char		**split_strs;
 
-	while (*s == c && *s != '\0')
-		s++;
+	s = ft_skip_split_char(s, c);
 	if (*s == '\0')
 	{
 		split_strs = (char **)malloc(sizeof(char *) * (split_num + 1));
+		if (split_strs == NULL)
+			return (NULL);
 		split_strs[split_num] = NULL;
 		return (split_strs);
 	}
 	s_ptr = s;
-	while (*s != c && *s != '\0')
-		s++;
-	split_num++;
+	s = ft_shift_splitted_word(s, c);
 	split_str = ft_substr(s_ptr, 0, s - s_ptr);
 	if (split_str == NULL)
 		return (NULL);
-	split_strs = alloc_helper(s, c, split_num);
+	split_strs = ft_split_helper(s, c, ++split_num);
 	if (split_strs == NULL)
 		free(split_str);
 	else
@@ -43,15 +56,15 @@ static char	**alloc_helper(char const *s, char c, size_t split_num)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**ret;
+	char	**split_strs;
 
 	if (s == NULL || (*s == '\0' && c == '\0'))
 	{
-		ret = (char **)malloc(sizeof(char));
-		ret[0] = NULL;
-		return (ret);
+		split_strs = (char **)malloc(sizeof(char));
+		split_strs[0] = NULL;
+		return (split_strs);
 	}
-	return (alloc_helper(s, c, 0));
+	return (ft_split_helper(s, c, 0));
 }
 
 // // test
