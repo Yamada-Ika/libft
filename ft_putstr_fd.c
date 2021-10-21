@@ -6,17 +6,17 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:43 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 09:49:47 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 18:20:14 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *c, int fd)
+void	ft_putstr_fd(char *c, int fd)
 {
-	size_t		c_len;
-	size_t		prev_write_len;
-	char const	*tmp_c;
+	size_t	c_len;
+	size_t	prev_write_len;
+	char 	*tmp_c;
 
 	if (c == NULL)
 		return ;
