@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 17:02:54 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 21:00:27 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static	int	is_space(int c)
 
 int	ft_atoi(const char *str)
 {
-	long	num;
-	int		sign;
+	long long	num;
+	int			sign;
 
 	sign = 1;
 	num = 0;

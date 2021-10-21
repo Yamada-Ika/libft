@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 21:35:45 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/18 11:55:12 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 20:53:07 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	isINT_MIN;
+	int	is_INT_MIN;
 
-	isINT_MIN = 0;
+	is_INT_MIN = 0;
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
 		if (n == INT_MIN)
 		{
-			isINT_MIN = 1;
+			is_INT_MIN = 1;
 			n++;
 		}
 		n *= -1;
@@ -32,7 +32,7 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 	{
 		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + isINT_MIN + '0', fd);
+		ft_putchar_fd(n % 10 + is_INT_MIN + '0', fd);
 	}
 }
 
