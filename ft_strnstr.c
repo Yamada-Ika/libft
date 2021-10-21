@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:08:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 00:23:29 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 16:06:40 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,43 +33,10 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 // #include <stdio.h>
 
 // int main(void){
-// 	char haystack[] = "see FF your FF return FF now FF";
-// 	char needle[] = "FF";
-// 	size_t len;
+// 	char *haystack = ft_strdup("see FF your FF return FF now FF");
+// 	char *needle = ft_strdup("FF");
 
-	// // < normal >
-	// len = strlen(haystack);
-	// printf("strnstr    : %p should be equal to %p\n", 
-	// 	strnstr(haystack, needle, len), &haystack[4]);
-	// printf("strnstr    : %s\n",strnstr(haystack, needle, len));
-	// printf("ft_strnstr : %p should be equal to %p\n", 
-	// 	ft_strnstr(haystack, needle, len), &haystack[4]);
-	// printf("ft_strnstr : %s\n",strnstr(haystack, needle, len));
-
-	// // < len = 0 >
-	// len = 0;
-	// printf("strnstr    : %p should be equal to %p\n", 
-	// 	strnstr(haystack, needle, len), &haystack[4]);
-	// printf("strnstr    : %s\n",strnstr(haystack, needle, len));
-	// printf("ft_strnstr : %p should be equal to %p\n", 
-	// 	ft_strnstr(haystack, needle, len), &haystack[4]);
-	// printf("ft_strnstr : %s\n",strnstr(haystack, needle, len));
-
-	// // < special >
-	// len = 0;
-	// printf("strnstr    : %p should be equal to %p\n", 
-	// 	strnstr("abbbcdefg", "bbc", 20), &haystack[4]);
-	// printf("strnstr    : %s\n",strnstr("abbbcdefg", "bbc", 20));
-	// printf("ft_strnstr : %p should be equal to %p\n", 
-	// 	ft_strnstr("abbbcdefg", "bbc", 20), &haystack[4]);
-	// printf("ft_strnstr : %s\n",ft_strnstr("abbbcdefg", "bbc", 20));
-
-	// < normal >
-	// len = strlen(haystack);
-	// printf("strnstr    : %p should be equal to %p\n", 
-	// 	strnstr(haystack, "\0f", len), &haystack[4]);
-	// printf("strnstr    : %s\n",strnstr(haystack, "\0f", len));
-	// printf("ft_strnstr : %p should be equal to %p\n", 
-	// 	ft_strnstr(haystack, "\0f", len), &haystack[4]);
-	// printf("ft_strnstr : %s\n",strnstr(haystack, "\0f", len));
+// 	printf("%s\n", ft_strnstr(haystack, needle, 10));
+// 	free(haystack);
+// 	free(needle);
 // }
