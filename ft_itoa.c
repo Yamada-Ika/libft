@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:29 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 10:59:26 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/21 15:52:31 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,21 @@ char	*ft_itoa(int n)
 {
 	size_t		digits_count;
 	char		*num;
+	int			is_nega;
 
+	if (n == 0)
+		return (ft_strdup("0"));
+	is_nega = n * (-1);
 	digits_count = count_digits(n);
 	num = (char *)ft_calloc(digits_count + 1, sizeof(char));
 	if (num == NULL)
 		return (NULL);
 	while (digits_count-- > 0)
 	{
-		num[digits_count] = "9876543210123456789"(n % 10 + 9);
+		num[digits_count] = "9876543210123456789"[n % 10 + 9];
 		n /= 10;
 	}
-	if (is_nega)
+	if (is_nega > 0)
 		num[0] = '-';
 	return (num);
 }
