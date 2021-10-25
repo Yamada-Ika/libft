@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 20:08:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 18:58:13 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:57:05 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void){
-// 	char *haystack = ft_strdup("see FF your FF return FF now FF");
-// 	char *needle = ft_strdup("FF");
-
-// 	printf("%s\n", strnstr(haystack, needle, 0));
-// 	printf("%s\n", ft_strnstr(haystack, needle, 0));
-// 	free(haystack);
-// 	free(needle);
-// }

@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:17 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 20:33:34 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:56:57 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,3 @@ int	ft_strncmp(const char*s1, const char *s2, size_t n)
 		i++;
 	return (cu_s1[i] - cu_s2[i]);
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void){
-// 	char *s1 = ft_strdup("\200");
-// 	char *s2 = ft_strdup("\0");
-
-// 	printf("%d\n", ft_strncmp(s1, s2, 3));
-// }

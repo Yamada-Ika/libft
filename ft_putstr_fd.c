@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:43 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 18:33:34 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:55:46 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,3 @@ void	ft_putstr_fd(char *c, int fd)
 		tmp_c += INT_MAX;
 	}
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void){
-	// ft_putstr_fd("hello, world!", 1);
-	// ft_putstr_fd(NULL, 1);
-	// ft_putstr_fd("", 1);
-	// write(1, "hello\n", (size_t)INT_MAX+1);
-// }

@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:29 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 21:06:12 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:53:56 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,3 @@ char	*ft_itoa(int n)
 		num[0] = '-';
 	return (num);
 }
-
-// -- test code --
-// #include <stdio.h>
-// #include <limits.h>
-
-// int main(void){
-// 	char *ret;
-
-// 	ret = ft_itoa(INT_MIN);
-// 	printf("%s\n", ret);
-// 	free(ret);
-// }

@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 19:59:00 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 20:35:24 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:56:31 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	ft_strlcpy(dst + dst_len, src, cat_len + 1);
 	return (dst_len + src_len);
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void) {
-// 	char dst[100] = "012";
-// 	char src[100] = "012";
-// 	printf("ft ret  : %zu\n", ft_strlcat(dst, src, 3));
-// 	printf("lib ret : %zu\n", strlcat(dst, src, 3));
-// 	// printf("dst : %s\n", dst);
-// }
-
-/*
-* : dstsize
-              *
-dst = |a|\0| | | |
-       *
-dst = |a|b|c|\0| |
-*/

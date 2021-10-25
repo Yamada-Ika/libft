@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 12:23:10 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 10:01:08 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:57:21 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		tail--;
 	return (ft_substr(head, 0, tail - head + 1));
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void) {
-// 	char *trimed_s;
-
-// 	// <- nortion case ->
-// 	trimed_s = ft_strtrim("1234aaa12", "1234");
-// 	printf("trimed_s = %s\n", trimed_s);
-// 	for (int i = 0; i < 4; i++)
-// 		printf("%02x ", trimed_s[i]);
-// 	putchar('\n');
-// 	free(trimed_s);
-// }

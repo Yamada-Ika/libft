@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:33:49 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 12:54:20 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:54:41 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,3 @@ t_list	*ft_lstnew(void	*content)
 	list->next = NULL;
 	return (list);
 }
-
-// < test code >
-// #include <stdio.h>
-
-// int main(void) {
-// 	char *str1 = "hello, world!";
-// 	t_list	*greeting;
-
-// 	greeting = ft_lstnew(str1);
-// 	printf("%s %p\n", (char *)greeting->content, greeting->next);
-// 	free(greeting);
-// }

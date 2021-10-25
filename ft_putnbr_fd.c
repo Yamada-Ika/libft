@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 21:35:45 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 20:53:07 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:55:41 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(n % 10 + is_INT_MIN + '0', fd);
 	}
 }
-
-// -- test code --
-// int main(void){
-	// ft_putnbr_fd(100, 1);
-	// ft_putchar_fd('\n', 1);
-	// ft_putnbr_fd(-123, 1);
-	// ft_putchar_fd('\n', 1);
-// 	ft_putnbr_fd(INT_MIN, 1);
-// 	ft_putchar_fd('\n', 1);
-// }

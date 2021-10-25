@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:46:04 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/22 21:40:59 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:53:04 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,3 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(mem, size * count);
 	return (mem);
 }
-
-// // // test code
-// #include <stdio.h>
-// #include <malloc/malloc.h>
-
-// int main(void) {
-// 	void *ret;
-// 	ret = ft_calloc(9223372036854775807, sizeof(int));
-// 	printf("%p\n", ret);
-// 	printf("malloc_size %zu\n", malloc_size(ret));
-// 	free(ret);
-// }

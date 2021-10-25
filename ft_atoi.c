@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 23:50:13 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 21:00:27 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:52:51 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,3 @@ int	ft_atoi(const char *str)
 	}
 	return ((int)num);
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void){
-// 	printf("%d\n", atoi("100"));
-// }

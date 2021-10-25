@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:48:21 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 21:02:58 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:56:52 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	new_str[i] = '\0';
 	return (new_str);
 }
-
-// -- test code --
-// #include <stdio.h>
-// #include <string.h>
-
-// char	index_plus_char(unsigned int index, char c)
-// {
-// 	return (c + index);
-// }
-
-// int main(void) {
-// 	char str[] = "Hello, world!";
-// 	char *return_value;
-
-// 	printf("str =          %s\n", str);
-// 	return_value = ft_strmapi(str, index_plus_char);
-// 	printf("retrun value = %s\n", return_value);
-// 	free(return_value);
-// }

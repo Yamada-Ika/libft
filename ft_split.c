@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:47 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 18:05:36 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:55:54 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,86 +66,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (ft_split_helper(s, c, 0));
 }
-
-// // test
-
-// void print_strs_str(char *str) {
-// 	size_t str_len = strlen(str);
-
-// 	for (size_t i = 0; i < str_len; i++) {
-// 		printf("ret[%zu] = %02x %c\n", i, str[i], str[i]);
-// 	}
-// }
-
-// #include <stdio.h>
-// int main(void) {
-// 	char **ret;
-// 	int i = 0;
-
-// 	// // scrapbox case
-// 	ret = ft_split("\0aa\0bbb", '\0');
-// 	while (ret[i] != NULL)
-// 	{
-// 		print_strs_str(ret[i]);
-// 		i++;
-// 	}
-// 	free(ret);
-
-// 	// // // normal
-// 	// ret = ft_split("aa,bb,cc", ',');
-// 	// while (ret[i] != NULL)
-// 	// {
-// 	// 	printf("ret[%d] = %s\n", i, ret[i]);
-// 	// 	i++;
-// 	// }
-// 	// free(ret);
-
-// 	// sep = '\0'
-// 	// ret = ft_split("aa,bb,cc", '\0');
-// 	// while (ret[i] != NULL)
-// 	// {
-// 	// 	printf("ret[%d] = %s\n", i, ret[i]);
-// 	// 	i++;
-// 	// }
-// 	// free(ret);
-
-// 	// // tester case 1
-// 	// ret = ft_split("split  ||this|for|me|||||!|", '|');
-// 	// while (ret[i] != NULL)
-// 	// {
-// 	// 	printf("ret[%d] = %s\n", i, ret[i]);
-// 	// 	for (int j = 0; j < strlen(ret[i]) + 1; j++) {
-// 	// 		printf("%02x ", ret[i][j]);
-// 	// 	}
-// 	// 	putchar('\n');
-// 	// 	i++;
-// 	// }
-// 	// free(ret);
-
-// 	// // tester case 2
-// 	// ret = ft_split("split  ||this|for|me|||||!", '|');
-// 	// while (ret[i] != NULL)
-// 	// {
-// 	// 	printf("ret[%d] = %s\n", i, ret[i]);
-// 	// 	for (int j = 0; j < strlen(ret[i]) + 1; j++) {
-// 	// 		printf("%02x ", ret[i][j]);
-// 	// 	}
-// 	// 	putchar('\n');
-// 	// 	i++;
-// 	// }
-// 	// free(ret);
-
-// 	// tester case 3
-// 	// char	**expected = (char*[6]){"split", "this", "for", "me", "!", NULL};
-// 	// ret = ft_split("      split       this for   me  !       ", ' ');
-// 	// while (ret[i] != NULL)
-// 	// {
-// 	// 	printf("ret[%d] = %s\n", i, ret[i]);
-// 	// 	for (int j = 0; j < strlen(ret[i]) + 1; j++) {
-// 	// 		printf("%02x ", ret[i][j]);
-// 	// 	}
-// 	// 	putchar('\n');
-// 	// 	i++;
-// 	// }
-// 	// free(ret);
-// }

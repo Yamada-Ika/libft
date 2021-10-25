@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 23:47:53 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/21 18:22:53 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:55:59 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,3 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 }
-
-// -- test code --
-// #include <stdio.h>
-
-// int main(void){
-// 	char s[] = "0123";
-// 	int c = 0;
-
-// 	printf("strchr :    %p\n", strchr(s, c));
-// 	printf("ft_strchr : %p %p\n", ft_strchr(s, c), &s[4]);
-// }

@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 15:49:55 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/16 18:16:44 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/25 10:54:11 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,3 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	ft_lstadd_back(&new, *lst);
 	*lst = new;
 }
-
-// < test code >
-// #include <stdio.h>
-
-// int main(void) {
-// 	t_list * l =  NULL;
-// 	ft_lstadd_front(&l, ft_lstnew((void*)1));
-// 	// /* 1 */ check(l->content == (void*)1);
-// 	// /* 2 */ check(l->next == 0);
-// 	printf("l->content : %p\n", l->content);
-// 	printf("l->next    : %p\n", l->next);
-
-// 	ft_lstadd_front(&l, ft_lstnew((void*)2));
-// 	// /* 3 */ check(l->content == (void*)2);
-// 	// /* 4 */ check(l->next->content == (void*)1);
-// 	// /* 5 */ check(l->next->next == 0); 
-// 	printf("l->content       : %p\n", l->content);
-// 	printf("l->next->content : %p\n", l->next->content);
-// 	printf("l->next->next    : %p\n", l->next->next);
-// }
