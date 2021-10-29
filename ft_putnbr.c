@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 17:31:44 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/26 12:42:53 by iyamada          ###   ########.fr       */
+/*   Created: 2021/10/26 17:34:51 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/26 17:43:53 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_putnbr(int n)
 {
-	t_list	*prev_lst;
-	t_list	*next_lst;
-
-	if (lst == NULL || *lst == NULL)
-		return ;
-	next_lst = *lst;
-	while (next_lst != NULL)
-	{
-		prev_lst = next_lst;
-		next_lst = next_lst->next;
-		ft_lstdelone(prev_lst, (*del));
-	}
-	*lst = NULL;
+	ft_putnbr_fd(n, STDOUT_FILENO);
 }

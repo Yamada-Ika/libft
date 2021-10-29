@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 17:31:44 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/26 12:42:53 by iyamada          ###   ########.fr       */
+/*   Created: 2021/10/28 17:12:30 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/28 17:23:22 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+char	*ft_strrev(char *s)
 {
-	t_list	*prev_lst;
-	t_list	*next_lst;
+	size_t	s_len;
+	size_t	i;
+	char	tmp;
 
-	if (lst == NULL || *lst == NULL)
-		return ;
-	next_lst = *lst;
-	while (next_lst != NULL)
+	s_len = ft_strlen(s);
+	i = 0;
+	while (i < s_len / 2)
 	{
-		prev_lst = next_lst;
-		next_lst = next_lst->next;
-		ft_lstdelone(prev_lst, (*del));
+		tmp = s[i];
+		s[i] = s[s_len - (i + 1)];
+		s[s_len - (i + 1)] = tmp;
+		i++;
 	}
-	*lst = NULL;
+	return (s);
 }

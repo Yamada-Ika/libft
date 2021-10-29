@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/12 17:31:44 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/26 12:42:53 by iyamada          ###   ########.fr       */
+/*   Created: 2021/10/28 21:15:14 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/28 21:22:40 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+static size_t	ft_max(size_t num1, size_t num2)
 {
-	t_list	*prev_lst;
-	t_list	*next_lst;
+	if (num1 > num2)
+		return (num1);
+	return (num2);
+}
 
-	if (lst == NULL || *lst == NULL)
-		return ;
-	next_lst = *lst;
-	while (next_lst != NULL)
-	{
-		prev_lst = next_lst;
-		next_lst = next_lst->next;
-		ft_lstdelone(prev_lst, (*del));
-	}
-	*lst = NULL;
+int	ft_strcmp(const char*s1, const char *s2)
+{
+	size_t	longer_len;
+
+	longer_len = ft_max(ft_strlen(s1), ft_strlen(s2));
+	return (ft_strncmp(s1, s2, longer_len));
 }

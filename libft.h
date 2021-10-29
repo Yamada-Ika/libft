@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:05:00 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/26 10:23:06 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/28 22:23:35 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <unistd.h>
 # include <stdio.h>
 #include <malloc/malloc.h>
+
+#define INT_BIT sizeof(int) * 8
 
 typedef struct s_list
 {
@@ -73,5 +75,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_putchar(char c);
 char	*ft_strstr(const char *haystack, const char *needle);
 void	ft_free_s(void **ptr);
+void	ft_putnbr(int n);
+char	*ft_strrev(char *s);
+int		ft_strcmp(const char*s1, const char *s2);
+void	ft_putnbr_base(int n, char *base);
+void	ft_putuinbr(unsigned int n);
 
 #endif
