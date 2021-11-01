@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:05:00 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/28 22:23:35 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/10/31 17:01:16 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,11 @@ char	*ft_strrev(char *s);
 int		ft_strcmp(const char*s1, const char *s2);
 void	ft_putnbr_base(int n, char *base);
 void	ft_putuinbr(unsigned int n);
+char	*ft_uitoa(unsigned int n);
+void	ft_putstr(char *c);
+char	*ft_itoa_base(int n, char *base);
+char	*ft_lltoa(long long n);
+char	*ft_lltoa_base(long long n, char *base);
+size_t	ft_strlen_s(const char *s);
 
 #endif

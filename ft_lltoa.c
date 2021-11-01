@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/10 23:46:29 by iyamada           #+#    #+#             */
-/*   Updated: 2021/10/31 00:34:32 by iyamada          ###   ########.fr       */
+/*   Created: 2021/10/31 00:20:35 by iyamada           #+#    #+#             */
+/*   Updated: 2021/10/31 00:34:05 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_sign(int n)
+static int	ft_sign(long long n)
 {
 	if (n < 0)
 		return (-1);
 	return (1);
 }
 
-static size_t	count_digits(int n)
+static size_t	count_digits(long long n)
 {
-	size_t		digits_count;
+	size_t	digits_count;
 
 	digits_count = 0;
 	if (n < 0)
@@ -34,11 +34,11 @@ static size_t	count_digits(int n)
 	return (digits_count);
 }
 
-char	*ft_itoa(int n)
+char	*ft_lltoa(long long n)
 {
 	size_t	digits_count;
 	char	*num;
-	int		tmp_n;
+	long long	tmp_n;
 
 	if (n == 0)
 		return (ft_strdup("0"));
