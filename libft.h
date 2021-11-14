@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:05:00 by iyamada           #+#    #+#             */
-/*   Updated: 2021/11/02 10:37:56 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/11/15 03:53:15 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,9 @@ char	*ft_itoa_base(int n, char *base);
 char	*ft_lltoa(long long n);
 char	*ft_lltoa_base(long long n, char *base);
 size_t	ft_strlen_s(const char *s);
+char	*ft_ultoa(unsigned long n);
+char	*ft_ultoa_base(unsigned long n, char *base);
+char	*ft_uitoa_base(unsigned int n, char *base);
+char	*ft_uitoa(unsigned int n);
 
 #endif

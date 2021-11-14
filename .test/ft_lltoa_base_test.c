@@ -1,4 +1,4 @@
-#include "../libft.h"
+#include "libft_test.h"
 
 void run_ft_lltoa_base_test(void) {
 	char *num;
@@ -23,7 +23,7 @@ void run_ft_lltoa_base_test(void) {
 	for (int i = 0; i < 10; i++) {
 		random = (long long)((rand() / (double)RAND_MAX - 0.5) * 2 * LLONG_MAX);
 		num = ft_lltoa_base(random, "0123456789ABCDEF");
-		printf("%llx\n", random);
+		printf("%llX\n", random);
 		printf("%s\n", num);
 		free(num);
 	}

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   ft_ultoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/30 00:39:38 by iyamada           #+#    #+#             */
-/*   Updated: 2021/11/15 03:51:00 by iyamada          ###   ########.fr       */
+/*   Created: 2021/11/15 02:57:18 by iyamada           #+#    #+#             */
+/*   Updated: 2021/11/15 03:16:45 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_digits(unsigned int n)
+static size_t	count_digits(unsigned long n)
 {
-	size_t		digits_count;
+	size_t	digits_count;
 
 	digits_count = 0;
 	while (n > 0)
@@ -25,7 +25,7 @@ static size_t	count_digits(unsigned int n)
 	return (digits_count);
 }
 
-char	*ft_uitoa(unsigned int n)
+char	*ft_ultoa(unsigned long n)
 {
 	size_t	digits_count;
 	char	*num;
@@ -38,7 +38,7 @@ char	*ft_uitoa(unsigned int n)
 		return (NULL);
 	while (digits_count-- > 0)
 	{
-		num[digits_count] = "9876543210123456789"[n % 10 + 9];
+		num[digits_count] = "0123456789"[n % 10];
 		n /= 10;
 	}
 	return (num);
