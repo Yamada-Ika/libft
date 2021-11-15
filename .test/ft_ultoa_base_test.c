@@ -27,6 +27,11 @@ void run_ft_ultoa_base_test(void) {
 		printf("%s\n", num);
 		free(num);
 	}
+	random = 0;
+	num = ft_ultoa_base(random, "0123456789ABCDEF");
+	printf("%lX\n", random);
+	printf("%s\n", num);
+	free(num);
 }
 
 int main(void) {
