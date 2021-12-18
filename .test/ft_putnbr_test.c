@@ -1,4 +1,5 @@
 #include "../libft.h"
+#include <stdio.h>
 
 void run_ft_putnbr_test(void) {
 	int random;
