@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:05:00 by iyamada           #+#    #+#             */
-/*   Updated: 2021/12/18 17:55:34 by iyamada          ###   ########.fr       */
+/*   Updated: 2021/12/18 18:31:09 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,6 @@ char		*ft_ultoa_base(unsigned long n, char *base);
 char		*ft_uitoa_base(unsigned int n, char *base);
 char		*ft_uitoa(unsigned int n);
 long long	ft_strtoll(const char *str, char **endptr, int base);
+long long	ft_atoll(const char *str);
 
 #endif
