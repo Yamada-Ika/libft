@@ -6,7 +6,7 @@
 /*   By: iyamada <iyamada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 01:05:00 by iyamada           #+#    #+#             */
-/*   Updated: 2022/01/21 18:28:51 by iyamada          ###   ########.fr       */
+/*   Updated: 2022/05/16 01:31:25 by iyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ char		*ft_uitoa(unsigned int n);
 long long	ft_strtoll(const char *str, char **endptr, int base);
 long long	ft_atoll(const char *str);
 char		**ft_split2(char const *s, char c);
+void		*ft_realloc(void *ptr, size_t size);
 
 #endif
